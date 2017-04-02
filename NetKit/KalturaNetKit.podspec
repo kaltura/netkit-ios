@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'NetKit'
-  s.version          = '0.0.1'
+  s.name             = 'KalturaNetKit'
+  s.version          = '0.0.2'
   s.summary          = 'NetKit: Kaltura Mobile Client Network SDK'
   s.homepage         = 'https://github.com/kaltura/kaltura-netkit-ios'
   s.license          = { :type => 'AGPLv3', :text => 'AGPLv3' }
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'NetKit/NetKit/Classes/**/*'
+  s.source_files = 'NetKit/Classes/**/*'
 
   s.dependency 'SwiftyJSON'
   s.dependency 'Log'
