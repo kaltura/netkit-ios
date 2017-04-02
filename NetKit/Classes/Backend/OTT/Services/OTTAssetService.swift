@@ -44,11 +44,11 @@ public class OTTAssetService {
 
 public struct PlaybackContextOptions {
 
-    internal var playbackContextType: PlaybackContextType
-    internal var protocls: [String]
-    internal var assetFileIds: [String]?
+    public var playbackContextType: PlaybackContextType
+    public var protocls: [String]
+    public var assetFileIds: [String]?
 
-    func toDictionary() -> [String: Any] {
+    public func toDictionary() -> [String: Any] {
 
         var dict: [String: Any] = [:]
         dict["context"] = playbackContextType.rawValue

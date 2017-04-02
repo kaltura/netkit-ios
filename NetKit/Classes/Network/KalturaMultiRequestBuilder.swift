@@ -13,7 +13,7 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
     
     var requests: [KalturaRequestBuilder] = [KalturaRequestBuilder]()
 
-    init?(url: String) {
+    public init?(url: String) {
         super.init(url: url, service: "multirequest", action: nil)
     }
     
