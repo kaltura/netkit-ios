@@ -1,0 +1,22 @@
+{
+  "name": "NetKit",
+  "version": "0.1.0",
+  "summary": "A short description of NetKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/srivkas@gmail.com/NetKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "srivkas@gmail.com": "Rivka.Peleg@kaltura.com"
+  },
+  "source": {
+    "git": "https://github.com/srivkas@gmail.com/NetKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "NetKit/Classes/**/*"
+}
