@@ -2,7 +2,7 @@
 
 import Quick
 import Nimble
-import NetKit
+import KalturaNetKit
 
 class TableOfContentsSpec: QuickSpec {
     override func spec() {

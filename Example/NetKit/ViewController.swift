@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import NetKit
+import KalturaNetKit
 
 class ViewController: UIViewController {
 

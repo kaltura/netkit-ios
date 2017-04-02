@@ -1,6 +1,10 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## KalturaNetKit
+
+AGPLv3
+
 ## Log
 
 Copyright (c) 2015-2016 Damien (http://delba.io)
@@ -23,10 +27,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-## NetKit
-
-AGPLv3
 
 ## SwiftyJSON
 

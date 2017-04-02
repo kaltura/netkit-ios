@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double NetKitVersionNumber;
-FOUNDATION_EXPORT const unsigned char NetKitVersionString[];
+FOUNDATION_EXPORT double KalturaNetKitVersionNumber;
+FOUNDATION_EXPORT const unsigned char KalturaNetKitVersionString[];
 
