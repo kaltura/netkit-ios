@@ -10,15 +10,15 @@
 import UIKit
 import SwiftyJSON
 
-class OVPEntry: OVPBaseObject {
+public class OVPEntry: OVPBaseObject {
     
-    var id: String
-    var dataURL: URL?
-    var mediaType: Int?
-    var flavorParamsIds: String?
-    var duration: TimeInterval = 0
-    var name: String?
-    var type: Int?
+    public var id: String
+    public var dataURL: URL?
+    public var mediaType: Int?
+    public var flavorParamsIds: String?
+    public var duration: TimeInterval = 0
+    public var name: String?
+    public var type: Int?
     
     
     let idKey = "id"
@@ -29,7 +29,7 @@ class OVPEntry: OVPBaseObject {
     let nameKey = "name"
     let typeKey = "type"
     
-    required init?(json: Any) {
+    public required init?(json: Any) {
         
         let jsonObject = JSON(json)
         guard let id = jsonObject[idKey].string else {

@@ -9,13 +9,13 @@
 import Foundation
 import SwiftyJSON
 
-class OTTDrmData: OTTBaseObject {
+public class OTTDrmData: OTTBaseObject {
 
-    var scheme: String
-    var licenseURL: String
-    var certificate: String?
+    public var scheme: String
+    public var licenseURL: String
+    public var certificate: String?
 
-    required init?(json: Any) {
+    public required init?(json: Any) {
         let jsonObject = JSON(json)
 
         guard  let scheme = jsonObject["scheme"].string,

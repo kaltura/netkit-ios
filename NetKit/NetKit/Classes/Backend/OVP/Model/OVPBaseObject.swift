@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OVPBaseObject{
+public protocol OVPBaseObject{
     
     init?(json: Any)
 }

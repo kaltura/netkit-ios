@@ -9,14 +9,14 @@
 import UIKit
 import SwiftyJSON
 
-class OVPSource: OVPBaseObject {
+public class OVPSource: OVPBaseObject {
     
-    var deliveryProfileId: Int64
-    var format: String
-    var protocols: [String]?
-    var flavors: [String]?
-    var url: URL?
-    var drm: [OVPDRM]?
+    public var deliveryProfileId: Int64
+    public var format: String
+    public var protocols: [String]?
+    public var flavors: [String]?
+    public var url: URL?
+    public var drm: [OVPDRM]?
     
     
     let deliveryProfileIdKey = "deliveryProfileId"
@@ -27,7 +27,7 @@ class OVPSource: OVPBaseObject {
     let drmKey = "drm"
     
     
-    required init?(json: Any) {
+    public required init?(json: Any) {
         
         let jsonObject = JSON(json)
         

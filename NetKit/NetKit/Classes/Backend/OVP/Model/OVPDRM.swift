@@ -9,23 +9,18 @@
 import UIKit
 import SwiftyJSON
 
-//"drm": [{
-//"scheme": "FairPlay",
-//"certificate": "base64-encoded-certificate",
-//"licenseURL": "https://udrm.kaltura.com/..."
-//}]
 
-class OVPDRM: OVPBaseObject {
+public class OVPDRM: OVPBaseObject {
 
-    var scheme: String?
-    var licenseURL: String?
-    var certificate: String?
+    public var scheme: String?
+    public var licenseURL: String?
+    public var certificate: String?
     
     private let schemeKey = "scheme"
     private let licenseURLKey = "licenseURL"
     private let certificateKey = "certificate"
     
-    required init?(json: Any) {
+    public required init?(json: Any) {
         
         let jsonObject = JSON(json)
         self.scheme = jsonObject[schemeKey].string

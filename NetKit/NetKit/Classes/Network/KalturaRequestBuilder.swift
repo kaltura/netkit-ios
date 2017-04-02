@@ -9,12 +9,12 @@
 import UIKit
 
 
-class KalturaRequestBuilder: RequestBuilder {
+public class KalturaRequestBuilder: RequestBuilder {
 
     public var service: String?
     public var action: String?
 
-    init?(url: String?, service: String?, action: String?) {
+    public init?(url: String?, service: String?, action: String?) {
         
         guard let baseURL = url else {
             return nil

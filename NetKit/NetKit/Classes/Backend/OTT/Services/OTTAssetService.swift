@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-class OTTAssetService {
+public class OTTAssetService {
 
-    internal static func get(baseURL: String, ks: String, assetId: String, type: AssetType) -> KalturaRequestBuilder? {
+    public static func get(baseURL: String, ks: String, assetId: String, type: AssetType) -> KalturaRequestBuilder? {
 
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "asset", action: "get") {
             request
@@ -26,7 +26,7 @@ class OTTAssetService {
         }
     }
 
-    internal static func getPlaybackContext(baseURL: String, ks: String, assetId: String, type: AssetType, playbackContextOptions: PlaybackContextOptions) -> KalturaRequestBuilder? {
+    public static func getPlaybackContext(baseURL: String, ks: String, assetId: String, type: AssetType, playbackContextOptions: PlaybackContextOptions) -> KalturaRequestBuilder? {
 
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "asset", action: "getPlaybackContext") {
             request
@@ -42,7 +42,7 @@ class OTTAssetService {
     }
 }
 
-struct PlaybackContextOptions {
+public struct PlaybackContextOptions {
 
     internal var playbackContextType: PlaybackContextType
     internal var protocls: [String]

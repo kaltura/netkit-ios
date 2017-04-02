@@ -10,9 +10,9 @@ import UIKit
 import SwiftyJSON
 
 
-class OVPBaseEntryService {
+public class OVPBaseEntryService {
 
-    internal static func list(baseURL: String, ks: String,entryID: String) -> KalturaRequestBuilder? {
+    public static func list(baseURL: String, ks: String,entryID: String) -> KalturaRequestBuilder? {
         
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "baseEntry", action: "list") {
             let responseProfile = ["fields":"mediaType,dataUrl,id,name,duration,msDuration,flavorParamsIds","type":1] as [String: Any]
@@ -26,7 +26,7 @@ class OVPBaseEntryService {
         }
     }
     
-    internal static func metadata(baseURL: String, ks: String,entryID: String) -> KalturaRequestBuilder? {
+    public static func metadata(baseURL: String, ks: String,entryID: String) -> KalturaRequestBuilder? {
         
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "metadata_metadata", action: "list") {
             request.setBody(key: "ks", value: JSON(ks))
@@ -39,7 +39,7 @@ class OVPBaseEntryService {
         }
     }
 
-    internal static func getContextData(baseURL: String, ks: String,entryID: String) -> KalturaRequestBuilder? {
+    public static func getContextData(baseURL: String, ks: String,entryID: String) -> KalturaRequestBuilder? {
         
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "baseEntry", action: "getContextData") {
             let contextData:[String:Any] = [String:Any]()
@@ -53,7 +53,7 @@ class OVPBaseEntryService {
         
     }
     
-    internal static func getPlaybackContext(baseURL: String, ks: String, entryID: String) -> KalturaRequestBuilder? {
+    public static func getPlaybackContext(baseURL: String, ks: String, entryID: String) -> KalturaRequestBuilder? {
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "baseEntry", action: "getPlaybackContext") {
             let contextData:[String:Any] = ["objectType":"KalturaContextDataParams"]
             request.setBody(key: "ks", value: JSON(ks))

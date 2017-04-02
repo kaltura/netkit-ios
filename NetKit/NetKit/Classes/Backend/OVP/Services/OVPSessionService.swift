@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-class OVPSessionService {
+public class OVPSessionService {
     
-    internal static func get(baseURL: String,
+    public static func get(baseURL: String,
                              ks: String) -> KalturaRequestBuilder? {
         
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL,
@@ -24,7 +24,7 @@ class OVPSessionService {
         }
     }
     
-    internal static func startWidgetSession(baseURL: String,
+    public static func startWidgetSession(baseURL: String,
                                             partnerId: Int64 )  -> KalturaRequestBuilder? {
         
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL,

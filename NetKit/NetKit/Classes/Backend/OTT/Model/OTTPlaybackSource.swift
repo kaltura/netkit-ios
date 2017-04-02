@@ -9,19 +9,19 @@
 import Foundation
 import SwiftyJSON
 
-class OTTPlaybackSource: OTTBaseObject {
+public class OTTPlaybackSource: OTTBaseObject {
 
-    var assetId: Int
-    var id: Int
-    var type: String // file format
-    var url: URL?
-    var duration: Float
-    var externalId: String?
-    var protocols: [String]
-    var format: String
-    var drm: [OTTDrmData]?
+    public var assetId: Int
+    public var id: Int
+    public var type: String // file format
+    public var url: URL?
+    public var duration: Float
+    public var externalId: String?
+    public var protocols: [String]
+    public var format: String
+    public var drm: [OTTDrmData]?
 
-    required init?(json: Any) {
+    public required init?(json: Any) {
         let jsonObject = JSON(json)
 
         guard let assetId = jsonObject["assetId"].int,

@@ -9,21 +9,21 @@
 import UIKit
 import SwiftyJSON
 
-class OVPFlavorAsset: OVPBaseObject {
+public class OVPFlavorAsset: OVPBaseObject {
 
     
     
-    var id: String
-    var tags: String?
-    var fileExt: String?
-    var paramsId: Int
+    public var id: String
+    public var tags: String?
+    public var fileExt: String?
+    public var paramsId: Int
     
     let idKey = "id"
     let tagsKey = "tags"
     let fileExtKey = "fileExt"
     let paramsIdKey = "flavorParamsId"
     
-    required init?(json: Any) {
+    public required init?(json: Any) {
      
         let jsonObject = JSON(json)
         if let id = jsonObject[idKey].string, let paramID = jsonObject[paramsIdKey].int {

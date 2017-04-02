@@ -8,15 +8,16 @@
 
 import UIKit
 
-class OVPList: OVPBaseObject {
+public class OVPList: OVPBaseObject {
 
     
-    var objects: [OVPBaseObject]?
+    public var objects: [OVPBaseObject]?
     
-    init(objects:[OVPBaseObject]?) {
+    public init(objects:[OVPBaseObject]?) {
         self.objects = objects
     }
-    required init?(json: Any) {
+    
+    public required init?(json: Any) {
         
     }
 }

@@ -9,15 +9,15 @@
 import UIKit
 import SwiftyJSON
 
-class OVPPlaybackContext: OVPBaseObject {
+public class OVPPlaybackContext: OVPBaseObject {
     
-    var flavorAssets: [OVPFlavorAsset]? = nil
-    var sources: [OVPSource]?
+    public var flavorAssets: [OVPFlavorAsset]? = nil
+    public var sources: [OVPSource]?
     let flavorAssetsKey = "flavorAssets"
     let sourcesKey = "sources"
     
     
-    required internal init?(json: Any)
+     required public init?(json: Any)
     {
         let jsonObject = JSON(json)
         let flavorAssetsJson = jsonObject[flavorAssetsKey].array

@@ -9,10 +9,10 @@
 import UIKit
 import SwiftyJSON
 
-class OVPMetadata: OVPBaseObject {
+public class OVPMetadata: OVPBaseObject {
     var xml:String?
     
-    required init?(json: Any) {
+    public required init?(json: Any) {
         
         let jsonObject = JSON(json)
         self.xml = jsonObject["xml"].string
