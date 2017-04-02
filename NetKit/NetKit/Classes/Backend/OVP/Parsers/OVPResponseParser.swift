@@ -20,9 +20,15 @@ class OVPResponseParser: ResponseParser {
         
         let jsonResponse = JSON(data)
         let resultObjectJSON = jsonResponse.dictionaryObject
-        let objectType: OVPBaseObject.Type? = OVPObjectMapper.classByJsonObject(json: resultObjectJSON)
+        
+        guard let dict = resultObjectJSON else {
+            throw error.invalidJsonObject
+        }
+        
+        
+        let objectType: OVPBaseObject.Type? = OVPObjectMapper.classByJsonObject(json: dict)
         if let type = objectType{
-            if let object = type.init(json: resultObjectJSON) {
+            if let object = type.init(json: dict) {
                 return object
             } else {
                 throw error.invalidJsonObject
@@ -38,8 +44,12 @@ class OVPResponseParser: ResponseParser {
         let jsonResponse = JSON(data)
         let resultObjectJSON = jsonResponse.dictionaryObject
         
+        guard let dict = resultObjectJSON else {
+            throw error.invalidJsonObject
+        }
+        
         if let type = T.self as? OVPBaseObject.Type {
-            if let object = type.init(json: resultObjectJSON) {
+            if let object = type.init(json: dict) {
                 if let result = object as? T {
                     return result
                 } else {

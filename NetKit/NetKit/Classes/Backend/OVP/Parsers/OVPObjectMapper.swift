@@ -17,7 +17,11 @@ class OVPObjectMapper: NSObject {
     
     static func classByJsonObject(json:Any?) -> OVPBaseObject.Type? {
         
-        let jsonObject = JSON(json)
+        guard let dict = json else {
+            return nil
+        }
+        
+        let jsonObject = JSON(dict)
         let className = jsonObject[classNameKey].string
         if let name = className{
             switch name {

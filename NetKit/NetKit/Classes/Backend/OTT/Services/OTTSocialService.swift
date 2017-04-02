@@ -16,8 +16,6 @@ import SwiftyJSON
         switch self {
         case .facebook:
             return "FACEBOOK"
-        default:
-            return ""
         }
     }
 }

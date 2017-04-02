@@ -20,7 +20,7 @@ public class OTTUserService: NSObject {
                 .setBody(key: "partnerId", value: JSON(NSNumber.init(value: partnerId)))
 
             if let deviceId = udid {
-                request.setBody(key: "udid", value: JSON(udid))
+                request.setBody(key: "udid", value: JSON(deviceId))
             }
             return request
         }
@@ -34,7 +34,7 @@ public class OTTUserService: NSObject {
                 .setBody(key: "refreshToken", value: JSON(refreshToken))
                 .setBody(key: "ks", value: JSON(ks))
             if let deviceId = udid {
-                request.setBody(key: "udid", value: JSON(udid))
+                request.setBody(key: "udid", value: JSON(deviceId))
             }
             return request
         }
@@ -46,7 +46,7 @@ public class OTTUserService: NSObject {
             request.setBody(key: "partnerId", value: JSON(NSNumber.init(value: partnerId)))
 
             if let deviceId = udid {
-                request.setBody(key: "udid", value: JSON(udid))
+                request.setBody(key: "udid", value: JSON(deviceId))
             }
             return request
         }
@@ -59,7 +59,7 @@ public class OTTUserService: NSObject {
             request.setBody(key: "partnerId", value: JSON(NSNumber.init(value: partnerId)))
 
             if let deviceId = udid {
-                request.setBody(key: "udid", value: JSON(udid))
+                request.setBody(key: "udid", value: JSON(deviceId))
             }
 
             return request

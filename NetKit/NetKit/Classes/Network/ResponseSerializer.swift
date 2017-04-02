@@ -46,6 +46,6 @@ public protocol ResponseSerializer {
     
     func serialize(data: Data) throws -> Any {
         let string = String(data: data, encoding: .utf8)
-        return string
+        return string ?? ""
     }
 }

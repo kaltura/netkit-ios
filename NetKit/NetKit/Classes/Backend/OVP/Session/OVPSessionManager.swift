@@ -147,7 +147,7 @@ import UIKit
                 
                 if let data = r.data
                 {
-                    do {
+                    
                         guard   let arrayResult = data as? [Any],
                                 arrayResult.count == 2
                         else {
@@ -159,9 +159,7 @@ import UIKit
                         self.ks = arrayResult[0] as? String
                         self.tokenExpiration = sessionInfo?.expiry
                         completion(nil)
-                    } catch {
-                        completion(error)
-                    }
+                    
                     
                 } else {
                     completion(SessionManagerError.failedToGetLoginResponse)
