@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-internal class MediaMarkService {
+public class MediaMarkService {
 
-    internal static func sendTVPAPIEVent(baseURL: String,
+    public static func sendTVPAPIEVent(baseURL: String,
                                          initObj: [String: Any],
                                          eventType: String,
                                          currentTime: Int32,
@@ -36,7 +36,7 @@ internal class MediaMarkService {
 
     }
 
-    private static func createBookmark(eventType: String, position: Int32, assetId: String, fileId: String) -> JSON {
+    public static func createBookmark(eventType: String, position: Int32, assetId: String, fileId: String) -> JSON {
         var json: JSON = JSON.init(["objectType": "KalturaBookmark"])
         json["type"] = JSON("media")
         json["id"] = JSON(assetId)

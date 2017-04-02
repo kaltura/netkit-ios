@@ -21,18 +21,18 @@ public protocol ResponseSerializer {
 }
 
 
- class JSONSerializer: ResponseSerializer {
+public class JSONSerializer: ResponseSerializer {
     
-    func serialize(data: Data) throws -> Any {
+    public func serialize(data: Data) throws -> Any {
         let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions())
         return json
     }
 }
 
 
- class IntSerializer: ResponseSerializer {
+public class IntSerializer: ResponseSerializer {
     
-    func serialize(data: Data) throws -> Any {
+    public func serialize(data: Data) throws -> Any {
         guard let int8 = [UInt8](data).last else {
            throw SerializerError.serializationError
         }
@@ -42,9 +42,9 @@ public protocol ResponseSerializer {
     }
 }
 
- class StringSerializer: ResponseSerializer {
+public class StringSerializer: ResponseSerializer {
     
-    func serialize(data: Data) throws -> Any {
+    public func serialize(data: Data) throws -> Any {
         let string = String(data: data, encoding: .utf8)
         return string ?? ""
     }

@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-class KalturaMultiRequestBuilder: KalturaRequestBuilder {
+public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
     
     var requests: [KalturaRequestBuilder] = [KalturaRequestBuilder]()
 
@@ -18,7 +18,7 @@ class KalturaMultiRequestBuilder: KalturaRequestBuilder {
     }
     
     @discardableResult
-    internal func add(request:KalturaRequestBuilder) -> Self {
+    public func add(request:KalturaRequestBuilder) -> Self {
         self.requests.append(request)
         return self
     }

@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 public class OVPMetadata: OVPBaseObject {
-    var xml:String?
+    public var xml:String?
     
     public required init?(json: Any) {
         

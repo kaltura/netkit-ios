@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OTTBaseObject {
+public protocol OTTBaseObject {
 
      init?(json:Any)
 }
