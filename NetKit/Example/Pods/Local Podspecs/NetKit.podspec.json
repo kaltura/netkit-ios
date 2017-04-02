@@ -1,22 +1,29 @@
 {
   "name": "NetKit",
   "version": "0.1.0",
-  "summary": "A short description of NetKit.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/srivkas@gmail.com/NetKit",
+  "summary": "NetKit: Kaltura Mobile Client Network SDK",
+  "homepage": "https://github.com/kaltura/kaltura-netkit-ios",
   "license": {
-    "type": "MIT",
-    "file": "LICENSE"
+    "type": "AGPLv3",
+    "text": "AGPLv3"
   },
   "authors": {
-    "srivkas@gmail.com": "Rivka.Peleg@kaltura.com"
+    "Kaltura": "community@kaltura.com"
   },
   "source": {
-    "git": "https://github.com/srivkas@gmail.com/NetKit.git",
+    "git": "https://github.com/kaltura/kaltura-netkit-ios.git",
     "tag": "0.1.0"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "NetKit/Classes/**/*"
+  "source_files": "NetKit/Classes/**/*",
+  "dependencies": {
+    "SwiftyJSON": [
+
+    ],
+    "Log": [
+
+    ]
+  }
 }
