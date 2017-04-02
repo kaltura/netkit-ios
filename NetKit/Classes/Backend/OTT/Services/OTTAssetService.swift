@@ -48,6 +48,11 @@ public struct PlaybackContextOptions {
     public var protocls: [String]
     public var assetFileIds: [String]?
 
+    public init(playbackContextType:PlaybackContextType , protocls: [String], assetFileIds: [String]?){
+        self.playbackContextType = playbackContextType
+        self.protocls = protocls
+        self.assetFileIds = assetFileIds
+    }
     public func toDictionary() -> [String: Any] {
 
         var dict: [String: Any] = [:]
