@@ -11,5 +11,6 @@ notifications:
     recipients:
       - noam.tamim@kaltura.com
       - rivka.peleg@kaltura.com
+      - ziv.hundert@kaltura.com
     on_success: change
     on_failure: always
