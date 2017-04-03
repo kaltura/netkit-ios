@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyJSON
 
-public class OTTResponseParser: ResponseParser {
+public class OTTResponseParser: NSObject {
 
     public enum OTTResponseParserError: Error {
         case typeNotFound

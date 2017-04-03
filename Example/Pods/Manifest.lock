@@ -1,5 +1,5 @@
 PODS:
-  - KalturaNetKit (0.0.3):
+  - KalturaNetKit (0.0.7):
     - Log
     - SwiftyJSON
   - Log (1.0)
@@ -17,7 +17,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  KalturaNetKit: 0ace2196a000da7b743fc68383f00927bafc08ca
+  KalturaNetKit: d01863698bdfa2172d511ca74f12a463386a15af
   Log: 5e368c9528db07517d18d2d04ff5fe2b6f5a1e21
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff

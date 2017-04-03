@@ -1,6 +1,6 @@
 {
   "name": "KalturaNetKit",
-  "version": "0.0.3",
+  "version": "0.0.7",
   "summary": "NetKit: Kaltura Mobile Client Network SDK",
   "homepage": "https://github.com/kaltura/kaltura-netkit-ios",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "https://github.com/kaltura/kaltura-netkit-ios.git",
-    "tag": "v0.0.3"
+    "tag": "v0.0.7"
   },
   "platforms": {
     "ios": "8.0"
