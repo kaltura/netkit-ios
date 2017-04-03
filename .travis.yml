@@ -5,7 +5,7 @@ before_install:
 script:
   - cd Example
   - pod update
-  - xcodebuild -scheme NetKit -workspace NetKit.xcworkspace
+  - xcodebuild -scheme NetKit-Example -workspace NetKit.xcworkspace
 notifications:
   email:
     recipients:
