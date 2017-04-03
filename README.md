@@ -22,7 +22,7 @@ pod "NetKit"
 
 ## Author
 
-srivkas@gmail.com, Rivka.Peleg@kaltura.com
+community@kaltura.com
 
 ## License
 
