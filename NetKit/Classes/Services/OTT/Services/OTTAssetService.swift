@@ -11,7 +11,7 @@ import SwiftyJSON
 
 public class OTTAssetService {
 
-    public static func get(baseURL: String, ks: String, assetId: String, type: AssetType) -> KalturaRequestBuilder? {
+    public static func get(baseURL: String, ks: String, assetId: String, type: AssetObjectType) -> KalturaRequestBuilder? {
 
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "asset", action: "get") {
             request
@@ -26,7 +26,7 @@ public class OTTAssetService {
         }
     }
 
-    public static func getPlaybackContext(baseURL: String, ks: String, assetId: String, type: AssetType, playbackContextOptions: PlaybackContextOptions) -> KalturaRequestBuilder? {
+    public static func getPlaybackContext(baseURL: String, ks: String, assetId: String, type: AssetObjectType, playbackContextOptions: PlaybackContextOptions) -> KalturaRequestBuilder? {
 
         if let request: KalturaRequestBuilder = KalturaRequestBuilder(url: baseURL, service: "asset", action: "getPlaybackContext") {
             request
@@ -44,11 +44,11 @@ public class OTTAssetService {
 
 public struct PlaybackContextOptions {
 
-    public var playbackContextType: PlaybackContextType
+    public var playbackContextType: PlaybackType
     public var protocls: [String]
     public var assetFileIds: [String]?
 
-    public init(playbackContextType:PlaybackContextType , protocls: [String], assetFileIds: [String]?){
+    public init(playbackContextType:PlaybackType , protocls: [String], assetFileIds: [String]?){
         self.playbackContextType = playbackContextType
         self.protocls = protocls
         self.assetFileIds = assetFileIds

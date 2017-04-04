@@ -1,14 +1,17 @@
 PODS:
-  - KalturaNetKit (0.0.10):
-    - KalturaNetKit/Core (= 0.0.10)
-  - KalturaNetKit/Core (0.0.10):
+  - KalturaNetKit (0.0.11):
+    - KalturaNetKit/Core (= 0.0.11)
+  - KalturaNetKit/Core (0.0.11):
     - SwiftyJSON
+  - KalturaNetKit/Services (0.0.11):
+    - KalturaNetKit/Core
   - Nimble (5.1.1)
   - Quick (1.0.0)
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - KalturaNetKit (from `../`)
+  - KalturaNetKit/Services (from `../`)
   - Nimble (~> 5.1.1)
   - Quick (~> 1.0.0)
 
@@ -17,11 +20,11 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  KalturaNetKit: 830624169b6456bde66bba0846caf7b5f133c506
+  KalturaNetKit: 41a24d089aadc35d9815e3dbdce63dc2bae80a37
   Nimble: 415e3aa3267e7bc2c96b05fa814ddea7bb686a29
   Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: cb739edeb35995a39d27970a497f653ffebd294e
+PODFILE CHECKSUM: 5240afba9f76add2d36ad59ed4d342fec3cab46b
 
 COCOAPODS: 1.2.0
