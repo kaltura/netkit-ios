@@ -6,6 +6,7 @@ script:
   - cd Example
   - pod update
   - xcodebuild -scheme NetKit-Example -workspace NetKit.xcworkspace -sdk iphonesimulator
+  notifications:
   email:
     recipients:
       - noam.tamim@kaltura.com
