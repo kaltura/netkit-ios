@@ -5,8 +5,7 @@ before_install:
 script:
   - cd Example
   - pod update
-  - xcodebuild -scheme NetKit-Example -workspace NetKit.xcworkspace
-notifications:
+  - xcodebuild -scheme NetKit-Example -workspace NetKit.xcworkspace -sdk iphonesimulator
   email:
     recipients:
       - noam.tamim@kaltura.com
