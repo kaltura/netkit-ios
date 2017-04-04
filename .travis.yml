@@ -6,11 +6,11 @@ script:
   - cd Example
   - pod update
   - xcodebuild -scheme NetKit-Example -workspace NetKit.xcworkspace -sdk iphonesimulator
-  notifications:
+notifications:
   email:
     recipients:
       - noam.tamim@kaltura.com
       - rivka.peleg@kaltura.com
       - ziv.hundert@kaltura.com
     on_success: change
-    on_failure: always
+    on_failure: change
