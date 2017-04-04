@@ -16,10 +16,16 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/kaltura/netkit-ios.git', :tag => 'v' + s.version.to_s }
 
   s.ios.deployment_target = '8.0'
+  s.default_subspec = 'Core'
+  
+  s.subspec 'Core' do |sp|
+    sp.source_files = 'NetKit/Classes/Core/**/*'
+    sp.dependency 'SwiftyJSON'
+  end
 
-  s.source_files = 'NetKit/Classes/**/*'
-
-  s.dependency 'SwiftyJSON'
-  s.dependency 'Log'
+  s.subspec 'Services' do |sp|
+    sp.source_files = 'NetKit/Classes/Services/**/*'
+    sp.dependency 'KalturaNetKit/Core'
+  end
 
 end

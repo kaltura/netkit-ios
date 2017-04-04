@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'NetKit_Example' do
   pod 'KalturaNetKit', :path => '../'
+  pod 'KalturaNetKit/Services', :path => '../'
 
   target 'NetKit_Tests' do
     inherit! :search_paths

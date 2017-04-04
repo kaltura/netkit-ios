@@ -1,8 +1,8 @@
 {
   "name": "KalturaNetKit",
-  "version": "0.0.7",
+  "version": "0.0.10",
   "summary": "NetKit: Kaltura Mobile Client Network SDK",
-  "homepage": "https://github.com/kaltura/kaltura-netkit-ios",
+  "homepage": "https://github.com/kaltura/netkit-ios",
   "license": {
     "type": "AGPLv3",
     "text": "AGPLv3"
@@ -11,19 +11,31 @@
     "Kaltura": "community@kaltura.com"
   },
   "source": {
-    "git": "https://github.com/kaltura/kaltura-netkit-ios.git",
-    "tag": "v0.0.7"
+    "git": "https://github.com/kaltura/netkit-ios.git",
+    "tag": "v0.0.10"
   },
   "platforms": {
     "ios": "8.0"
   },
-  "source_files": "NetKit/Classes/**/*",
-  "dependencies": {
-    "SwiftyJSON": [
+  "default_subspecs": "Core",
+  "subspecs": [
+    {
+      "name": "Core",
+      "source_files": "NetKit/Classes/Core/**/*",
+      "dependencies": {
+        "SwiftyJSON": [
 
-    ],
-    "Log": [
+        ]
+      }
+    },
+    {
+      "name": "Services",
+      "source_files": "NetKit/Classes/Services/**/*",
+      "dependencies": {
+        "KalturaNetKit/Core": [
 
-    ]
-  }
+        ]
+      }
+    }
+  ]
 }
