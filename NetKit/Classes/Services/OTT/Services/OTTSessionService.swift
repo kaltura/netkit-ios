@@ -9,9 +9,9 @@
 import UIKit
 import SwiftyJSON
 
-internal class OTTSessionService: NSObject {
+public class OTTSessionService: NSObject {
 
-    internal static func get(baseURL: String, ks: String) -> KalturaRequestBuilder? {
+    public static func get(baseURL: String, ks: String) -> KalturaRequestBuilder? {
 
         if let request = KalturaRequestBuilder(url: baseURL, service: "session", action: "get") {
             request
@@ -23,7 +23,7 @@ internal class OTTSessionService: NSObject {
 
     }
 
-    internal static func switchUser(baseURL: String, ks: String, userId: String) -> KalturaRequestBuilder? {
+    public static func switchUser(baseURL: String, ks: String, userId: String) -> KalturaRequestBuilder? {
 
         if let request = KalturaRequestBuilder(url: baseURL, service: "session", action: "switchUser") {
             request
