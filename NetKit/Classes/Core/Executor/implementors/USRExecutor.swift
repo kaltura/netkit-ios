@@ -65,7 +65,7 @@ import UIKit
             DispatchQueue.main.async {
                 if let completion = r.completion {
                     
-                    if let error = error as? NSError {
+                    if let error = error as NSError? {
                         if error.code == NSURLErrorCancelled {
                             // canceled
                         } else {
