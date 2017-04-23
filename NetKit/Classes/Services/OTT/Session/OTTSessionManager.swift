@@ -21,12 +21,15 @@ public struct SessionInfo {
 }
 
 @objc public class OTTSessionManager: NSObject, SessionProvider {
+    
 
-    enum SessionManagerError: Error {
+    public enum SessionManagerError: Error {
         case failed
         case failedToGetLoginResponse
         case failedToRefreshKS
         case failedToLogout
+        case serverError(info:String?)
+        case userIsNotActivated
     }
 
     public weak var delegate: OTTSessionManagerDelegate?
@@ -338,6 +341,17 @@ public struct SessionInfo {
                         let loginResult: OTTBaseObject = result[0]
                         let sessionResult: OTTBaseObject = result[1]
 
+                        
+                        if let err = loginResult as? OTTError   {
+                            if let code = err.code,  Int(code) == OTTErrorCode.UserNotActivated.rawValue {
+                                completion(SessionManagerError.userIsNotActivated)
+                            }
+                            else{
+                                completion(SessionManagerError.serverError(info: err.message))
+                            }
+                            return
+                        }
+                        
                         if  let loginObj = loginResult as? OTTLoginResponse,
                             let sessionObj = sessionResult as? OTTSession {
 

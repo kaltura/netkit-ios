@@ -27,3 +27,9 @@ public class OTTError: OTTBaseObject {
     }
 
 }
+
+public enum OTTErrorCode: Int {
+    
+    case UserNotActivated = 2016
+    
+}
