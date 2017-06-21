@@ -140,9 +140,9 @@ public struct RequestElement: Request {
     @discardableResult
     public func setParam(key: String, value:String) -> Self {
         
-        if var params = self.urlParams {
-            params[key] = value
-        }else{
+        if self.urlParams != nil {
+            self.urlParams![key] = value
+        } else {
             self.urlParams = [key:value]
         }
         return self
