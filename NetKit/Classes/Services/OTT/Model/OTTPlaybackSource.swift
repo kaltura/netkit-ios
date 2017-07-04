@@ -20,6 +20,8 @@ public class OTTPlaybackSource: OTTBaseObject {
     public var protocols: [String]
     public var format: String
     public var drm: [OTTDrmData]?
+    public var adsPolicy: String? = nil
+    public var adsParam: String? = nil
 
     public required init?(json: Any) {
         let jsonObject = JSON(json)
@@ -42,6 +44,8 @@ public class OTTPlaybackSource: OTTBaseObject {
         self.format = format
         self.duration = jsonObject["duration"].float ?? 0
         self.externalId = jsonObject["externalId"].string
+        self.adsPolicy = jsonObject["adsPolicy"].string
+        self.adsParam = jsonObject["adsParam"].string
 
         var drmArray = [OTTDrmData]()
         jsonObject["drm"].array?.forEach {(json) in
