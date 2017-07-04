@@ -15,7 +15,7 @@ public class OTTFollowDataBaseResponse: OTTBaseObject {
     internal var followPhrase: String
     internal var announcementId: Int64
     internal var timestamp: Int64
-    
+
     public required init?(json:Any) {
         let jsonObject = JSON(json)
         
@@ -27,7 +27,7 @@ public class OTTFollowDataBaseResponse: OTTBaseObject {
         else {
             return nil
         }
-                
+
         self.status = status
         self.title = title
         self.followPhrase = followPhrase
@@ -35,4 +35,3 @@ public class OTTFollowDataBaseResponse: OTTBaseObject {
         self.timestamp = timestamp
     }
 }
-

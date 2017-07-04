@@ -26,4 +26,3 @@ public class OTTGetNotificationSettingsResponse: OTTBaseObject {
         self.pushNotificationEnabled = notificationEnabled
     }
 }
-

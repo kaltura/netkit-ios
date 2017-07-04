@@ -11,7 +11,6 @@ import SwiftyJSON
 
 public class OTTFollowTvSeriesResponse: OTTFollowDataBaseResponse {
     public var assetId: Int
-    
     public required init?(json:Any) {
         assetId = -1
         super.init(json: json)
@@ -23,4 +22,3 @@ public class OTTFollowTvSeriesResponse: OTTFollowDataBaseResponse {
         self.assetId = assetId
     }
 }
-

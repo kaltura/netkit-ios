@@ -10,7 +10,7 @@ import UIKit
 import SwiftyJSON
 
 @objc public enum SortType: Int {
-    
+
     case oldestFirst
     case newestFirs
     case unknown
@@ -28,7 +28,7 @@ import SwiftyJSON
 public class OTTPushNotificationServices: NSObject {
     public static func getNotificationSettingsState(baseURL: String, token: String) -> KalturaRequestBuilder? {
         if let request = KalturaRequestBuilder(url: baseURL, service: "notificationsSettings", action: "get") {
-            if (!token.isEmpty) {
+            if !token.isEmpty {
                 request.setBody(key: "ks", value: JSON(token))
             }
             return request
@@ -56,10 +56,10 @@ public class OTTPushNotificationServices: NSObject {
     public static func setDevisePushToken(baseURL: String, pushToken: String, deviceToken: String) -> KalturaRequestBuilder? {
         if let request = KalturaRequestBuilder(url: baseURL, service: "Notification", action: "setDevicePushToken") {
             request.setOTTBasicParams()
-            if (!pushToken.isEmpty) {
+            if !pushToken.isEmpty {
                 request.setBody(key: "pushToken", value: JSON(pushToken))
             }
-            if (!deviceToken.isEmpty) {
+            if !deviceToken.isEmpty {
                 request.setBody(key: "ks", value: JSON(deviceToken))
             }
             
@@ -72,10 +72,10 @@ public class OTTPushNotificationServices: NSObject {
     public static func addFollowTVSeries(baseURL: String, assetID: String, token: String) -> KalturaRequestBuilder? {
         if let request = KalturaRequestBuilder(url: baseURL, service: "followTvSeries", action: "add") {
             request.setOTTBasicParams()
-            if (!token.isEmpty) {
+            if !token.isEmpty {
                 request.setBody(key: "ks", value: JSON(token))
             }
-            if (!assetID.isEmpty) {
+            if !assetID.isEmpty {
                 let assetId = Int(assetID)
                 let followSettingd: [String: String] = ["objectType": "KalturaFollowTvSeries", "assetId": assetID]
                 request.setBody(key: "followTvSeries", value: JSON(followSettingd))
@@ -110,4 +110,3 @@ public class OTTPushNotificationServices: NSObject {
     }
     
 }
-
