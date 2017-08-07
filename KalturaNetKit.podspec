@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'KalturaNetKit'
-  s.version          = '0.0.16'
+  s.version          = '0.0.17'
   s.summary          = 'NetKit: Kaltura Mobile Client Network SDK'
   s.homepage         = 'https://github.com/kaltura/netkit-ios'
   s.license          = { :type => 'AGPLv3', :text => 'AGPLv3' }
