@@ -33,6 +33,8 @@ class OTTObjectMapper: NSObject {
                 return OTTPlaybackSource.self
             case "KalturaPlaybackContext":
                 return OTTPlaybackContext.self
+            case "KalturaTimeShiftedTvPartnerSettings":
+                return OTTKalturaTimeShiftedTvPartnerSettings.self
             default:
                 return nil
             }
