@@ -25,6 +25,10 @@
 		127CD37052B8E0BC645D83D4664F59D4 /* NMBStringify.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D08D505F7B8A1D0981662601C1FF677 /* NMBStringify.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		17261E344C2027602431A636759AC7F2 /* DSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875EEA5A75510A3AB3B32780D2AB2905 /* DSL.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		17C9EBD0CC5BA8CF065DD860F67B5E8B /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C63D55A54D786ACF08F6BA660D2BFD /* Configuration.swift */; };
+		1888CAE31F0B8E9500B28352 /* OTTPushNotificationServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888CAE21F0B8E9500B28352 /* OTTPushNotificationServices.swift */; };
+		1888CAE71F0B8EA200B28352 /* OTTFollowDataBaseResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888CAE41F0B8EA200B28352 /* OTTFollowDataBaseResponse.swift */; };
+		1888CAE81F0B8EA200B28352 /* OTTFollowTvSeriesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888CAE51F0B8EA200B28352 /* OTTFollowTvSeriesResponse.swift */; };
+		1888CAE91F0B8EA200B28352 /* OTTGetNotificationSettingsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1888CAE61F0B8EA200B28352 /* OTTGetNotificationSettingsResponse.swift */; };
 		1C50F54510D5C2B2AD84D7B74A6EDEBB /* BeGreaterThanOrEqualTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088E929DF0C0DAA87B530698C5B0C561 /* BeGreaterThanOrEqualTo.swift */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		1C7CA1FAFBF8B865596C739FEA39CDEE /* DSL.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A66CC34C8DE5D31DD7C3AAA0CA0679F /* DSL.m */; settings = {COMPILER_FLAGS = "-DPRODUCT_NAME=Nimble/Nimble"; }; };
 		1E9C727E5BAE68A8B1CAE74E230F1DDB /* OTTObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4B87277125321B315C603353978CDB /* OTTObjectMapper.swift */; };
@@ -222,7 +226,7 @@
 /* Begin PBXFileReference section */
 		025DB79402E277862A436AF239AED36F /* ExampleHooks.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleHooks.swift; path = Sources/Quick/Hooks/ExampleHooks.swift; sourceTree = "<group>"; };
 		02AA8CE8B1634C2C7FDB8AAFC17F7262 /* AllPass.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AllPass.swift; path = Sources/Nimble/Matchers/AllPass.swift; sourceTree = "<group>"; };
-		02AE504E71487A7CDE3D3A1841F5DB26 /* Pods_NetKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NetKit_Tests.framework; path = "Pods-NetKit_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		02AE504E71487A7CDE3D3A1841F5DB26 /* Pods_NetKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0368C13B8BC77707EFCE0E1B397AD455 /* Pods-NetKit_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetKit_Tests-resources.sh"; sourceTree = "<group>"; };
 		062CF4463406CE400EE352D348ABB0E6 /* KalturaRequestBuilder.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = KalturaRequestBuilder.swift; sourceTree = "<group>"; };
 		06C63D55A54D786ACF08F6BA660D2BFD /* Configuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = Sources/Quick/Configuration/Configuration.swift; sourceTree = "<group>"; };
@@ -235,7 +239,7 @@
 		0AE57EDD81BA4078D8B62CA81E733FF9 /* AsyncMatcherWrapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AsyncMatcherWrapper.swift; path = Sources/Nimble/Matchers/AsyncMatcherWrapper.swift; sourceTree = "<group>"; };
 		0B4B87277125321B315C603353978CDB /* OTTObjectMapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTObjectMapper.swift; sourceTree = "<group>"; };
 		0C3006622CC25A2086552DD1B46590CB /* OVPError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPError.swift; sourceTree = "<group>"; };
-		0C38FE1364D9BDEFF095B68CCA6B11AF /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
+		0C38FE1364D9BDEFF095B68CCA6B11AF /* SwiftyJSON.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = SwiftyJSON.modulemap; sourceTree = "<group>"; };
 		0DFC8BF923489F6030D15EF87F4C21C3 /* OVPUserService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPUserService.swift; sourceTree = "<group>"; };
 		0F5380E9B7CF2C6439DDC08E41C641FD /* mach_excServer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = mach_excServer.h; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/mach_excServer.h; sourceTree = "<group>"; };
 		13E4F463FDBD129520D5C52ED1F8BFF4 /* Pods-NetKit_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetKit_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
@@ -244,6 +248,10 @@
 		15517726D376CA4967D2E01F378CE387 /* OVPList.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPList.swift; sourceTree = "<group>"; };
 		1602219295C9E4CB1B38AF4E9FA8CF45 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		16BA0FC88B746F9F49A6E21F6659F28A /* QCKDSL.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QCKDSL.m; path = Sources/QuickObjectiveC/DSL/QCKDSL.m; sourceTree = "<group>"; };
+		1888CAE21F0B8E9500B28352 /* OTTPushNotificationServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OTTPushNotificationServices.swift; sourceTree = "<group>"; };
+		1888CAE41F0B8EA200B28352 /* OTTFollowDataBaseResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OTTFollowDataBaseResponse.swift; path = ../Services/OTTFollowDataBaseResponse.swift; sourceTree = "<group>"; };
+		1888CAE51F0B8EA200B28352 /* OTTFollowTvSeriesResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OTTFollowTvSeriesResponse.swift; path = ../Services/OTTFollowTvSeriesResponse.swift; sourceTree = "<group>"; };
+		1888CAE61F0B8EA200B28352 /* OTTGetNotificationSettingsResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OTTGetNotificationSettingsResponse.swift; path = ../Services/OTTGetNotificationSettingsResponse.swift; sourceTree = "<group>"; };
 		18A4376D19AE01D3028D35B2641560ED /* Pods-NetKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetKit_Example-frameworks.sh"; sourceTree = "<group>"; };
 		196382D37BB9F63A61420B12F2CE5BF0 /* HooksPhase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HooksPhase.swift; path = Sources/Quick/Hooks/HooksPhase.swift; sourceTree = "<group>"; };
 		19F5673EB0010A4F0AC88F4ABDDF7A11 /* OVPSessionService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPSessionService.swift; sourceTree = "<group>"; };
@@ -285,16 +293,16 @@
 		4952E54FD8D4CBD520A66D4A6A8BA975 /* KalturaNetKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KalturaNetKit-umbrella.h"; sourceTree = "<group>"; };
 		4A1DFD6A789344804AD9F15244E96D5C /* OTTError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTError.swift; sourceTree = "<group>"; };
 		4A22F43487200784582CD7B3D85B346D /* Pods-NetKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		4C6C0769D1476C486008329D56B8C460 /* Pods_NetKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NetKit_Example.framework; path = "Pods-NetKit_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C6C0769D1476C486008329D56B8C460 /* Pods_NetKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		572E99F31C50D18F5D1F32BBE21972B8 /* Nimble-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Nimble-dummy.m"; sourceTree = "<group>"; };
-		584C726D31F1CBF87961E917FCBA8A8A /* Quick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Quick.modulemap; sourceTree = "<group>"; };
+		584C726D31F1CBF87961E917FCBA8A8A /* Quick.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Quick.modulemap; sourceTree = "<group>"; };
 		5A026AB69F31159A7F23517EA6F2B837 /* SwiftyJSON.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = Source/SwiftyJSON.swift; sourceTree = "<group>"; };
 		5B07C2721D8ABFFCEFFA561B563292CF /* World.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = World.h; path = Sources/QuickObjectiveC/World.h; sourceTree = "<group>"; };
-		5CCD813DE4C79A6AD781A292086AFDE4 /* Nimble.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Nimble.modulemap; sourceTree = "<group>"; };
+		5CCD813DE4C79A6AD781A292086AFDE4 /* Nimble.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Nimble.modulemap; sourceTree = "<group>"; };
 		5EAAB17111057F9F255F138CE3C5C9C4 /* OVPFlavorAsset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPFlavorAsset.swift; sourceTree = "<group>"; };
 		5F518DC95B7258AB0F049A9FBFD7656B /* BeLogical.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLogical.swift; path = Sources/Nimble/Matchers/BeLogical.swift; sourceTree = "<group>"; };
 		60284623454F85D9F7977BA4447BA598 /* SwiftyJSON-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftyJSON-dummy.m"; sourceTree = "<group>"; };
-		6106E4EABDDBD041F5F59A4C0774117B /* KalturaNetKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KalturaNetKit.framework; path = KalturaNetKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6106E4EABDDBD041F5F59A4C0774117B /* KalturaNetKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KalturaNetKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6365219FEAB27DB5E39C55DECDF3ACDA /* OVPPlaybackContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPPlaybackContext.swift; sourceTree = "<group>"; };
 		63AA02016E17035D443A98E1E1D5CA53 /* RequestExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
 		63B1729FE83D38DB64C9FC615ED5C391 /* OVPDRM.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPDRM.swift; sourceTree = "<group>"; };
@@ -325,14 +333,14 @@
 		7D460227C3ACDDFBC19A0E19FD7B7070 /* Result.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		7D532008C6A1179CEC01782C7718FE6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		7EAECA846B7BCAC02209F194825D46D5 /* AdapterProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AdapterProtocols.swift; path = Sources/Nimble/Adapters/AdapterProtocols.swift; sourceTree = "<group>"; };
-		7FF287E6BF4AEEF3D11E0028307C6333 /* Pods-NetKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NetKit_Example.modulemap"; sourceTree = "<group>"; };
+		7FF287E6BF4AEEF3D11E0028307C6333 /* Pods-NetKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NetKit_Example.modulemap"; sourceTree = "<group>"; };
 		800209F992317826CD07412EA2B1200C /* OTTBaseObject.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTBaseObject.swift; sourceTree = "<group>"; };
-		81D4AB118ECCEB425E42C8034F3C27D2 /* Pods-NetKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-NetKit_Tests.modulemap"; sourceTree = "<group>"; };
+		81D4AB118ECCEB425E42C8034F3C27D2 /* Pods-NetKit_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-NetKit_Tests.modulemap"; sourceTree = "<group>"; };
 		82367CBAC03DEAB5158D7C4DCFA81221 /* ExampleGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExampleGroup.swift; path = Sources/Quick/ExampleGroup.swift; sourceTree = "<group>"; };
 		83E29A4BE90E8E1C1013AC95F6677CE7 /* BeVoid.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeVoid.swift; path = Sources/Nimble/Matchers/BeVoid.swift; sourceTree = "<group>"; };
 		83F4A2CA2A8877E1412779938B8C6A71 /* CwlCatchException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = CwlCatchException.h; path = Sources/Lib/CwlPreconditionTesting/CwlCatchException/CwlCatchException/CwlCatchException.h; sourceTree = "<group>"; };
 		84B0BDDFDC6D4EB924A8EDC461B87487 /* KalturaNetKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KalturaNetKit.xcconfig; sourceTree = "<group>"; };
-		84DBE470545B616698B12DB7FB17ECE9 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftyJSON.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DBE470545B616698B12DB7FB17ECE9 /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		852A817B904D4E6BAB3C3865FDCCF62D /* World+DSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "World+DSL.h"; path = "Sources/QuickObjectiveC/DSL/World+DSL.h"; sourceTree = "<group>"; };
 		85E6AA024EB1441D147B89A529A359E3 /* BeNil.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeNil.swift; path = Sources/Nimble/Matchers/BeNil.swift; sourceTree = "<group>"; };
 		8610522ECC51E4D1518EF6178957920F /* LiveStatsService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LiveStatsService.swift; sourceTree = "<group>"; };
@@ -346,7 +354,7 @@
 		8B7D990CC9E1229B69176474BE0802EF /* BeIdenticalTo.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeIdenticalTo.swift; path = Sources/Nimble/Matchers/BeIdenticalTo.swift; sourceTree = "<group>"; };
 		8F7E76683AB0D1113A12F012253C537A /* Nimble-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Nimble-prefix.pch"; sourceTree = "<group>"; };
 		917DF34F643A59877066CE21D8A7EE14 /* OVPStatsService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPStatsService.swift; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		943C641B80F0E2437AA3F8C4AF6E98CE /* NMBObjCMatcher.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NMBObjCMatcher.swift; path = Sources/Nimble/Adapters/NMBObjCMatcher.swift; sourceTree = "<group>"; };
 		9496BC2BBA5C81648EF0D025DE23A405 /* DSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DSL.swift; path = Sources/Quick/DSL/DSL.swift; sourceTree = "<group>"; };
 		94CCC4BF98A6E9B8093087612E3E5C05 /* Quick-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Quick-prefix.pch"; sourceTree = "<group>"; };
@@ -359,7 +367,7 @@
 		9FD5912CBC2C2279B0E0823AB1CE4065 /* QuickSpec.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QuickSpec.h; path = Sources/QuickObjectiveC/QuickSpec.h; sourceTree = "<group>"; };
 		9FDF0C13F7AB043CE00BBCD75F73AED9 /* RaisesException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RaisesException.swift; path = Sources/Nimble/Matchers/RaisesException.swift; sourceTree = "<group>"; };
 		A025A1ABD37A912C036CCEB62C55EC9A /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		A3FAB6E4096969420008B50BDF3A0B2A /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; name = mach_excServer.c; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/mach_excServer.c; sourceTree = "<group>"; };
+		A3FAB6E4096969420008B50BDF3A0B2A /* mach_excServer.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = mach_excServer.c; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/mach_excServer.c; sourceTree = "<group>"; };
 		A40EC4D87B583A383CED3793A52E05FA /* OVPEntry.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPEntry.swift; sourceTree = "<group>"; };
 		A74627768A29E210B62865892B489941 /* OTTDrmData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTDrmData.swift; sourceTree = "<group>"; };
 		AA48E68F306A04DC418013DD03386BC9 /* QCKDSL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = QCKDSL.h; path = Sources/QuickObjectiveC/DSL/QCKDSL.h; sourceTree = "<group>"; };
@@ -388,7 +396,7 @@
 		C5D4FDCECA93AFFADC5F79110773E8B0 /* OTTFile.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTFile.swift; sourceTree = "<group>"; };
 		C80E27B234A5106E4F3B1F7FCF4979FA /* NMBExceptionCapture.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NMBExceptionCapture.h; path = Sources/NimbleObjectiveC/NMBExceptionCapture.h; sourceTree = "<group>"; };
 		CB61EB0C552155D2D543F069535B2738 /* BeGreaterThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeGreaterThan.swift; path = Sources/Nimble/Matchers/BeGreaterThan.swift; sourceTree = "<group>"; };
-		CBD9453F8504B72381E18E1390EF2F18 /* KalturaNetKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = KalturaNetKit.modulemap; sourceTree = "<group>"; };
+		CBD9453F8504B72381E18E1390EF2F18 /* KalturaNetKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = KalturaNetKit.modulemap; sourceTree = "<group>"; };
 		CCB57A2B501866989C0B21783B89A2DB /* OTTGetAssetResponse.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTGetAssetResponse.swift; sourceTree = "<group>"; };
 		CDF97D7F10EC576C5BBBF30BB10E6CDB /* NimbleEnvironment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NimbleEnvironment.swift; path = Sources/Nimble/Adapters/NimbleEnvironment.swift; sourceTree = "<group>"; };
 		D100B6206C37AEBAC2FDE1DDDEBE8F25 /* Nimble.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Nimble.xcconfig; sourceTree = "<group>"; };
@@ -398,7 +406,7 @@
 		D63C3E187FD1CFD59E2E86FEA6DA1843 /* Equal.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Equal.swift; path = Sources/Nimble/Matchers/Equal.swift; sourceTree = "<group>"; };
 		D6CDAA1DA061197D3420703406769A69 /* Filter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Filter.swift; path = Sources/Quick/Filter.swift; sourceTree = "<group>"; };
 		D8997EE069EB0D749E6456CD732E5F89 /* Pods-NetKit_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetKit_Tests-dummy.m"; sourceTree = "<group>"; };
-		D96A1924446A40D8AAE47F40EE78F269 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Nimble.framework; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D96A1924446A40D8AAE47F40EE78F269 /* Nimble.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Nimble.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3DEEE50C0A76D1306142DF1D46536F /* OVPSource.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPSource.swift; sourceTree = "<group>"; };
 		DB39D4FA5212896F906897871E5E87DD /* CwlCatchException.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlCatchException.swift; path = Sources/Lib/CwlPreconditionTesting/CwlCatchException/CwlCatchException/CwlCatchException.swift; sourceTree = "<group>"; };
 		DC16EE5A12161DCF74289B97A5DAF480 /* OVPMetadata.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OVPMetadata.swift; sourceTree = "<group>"; };
@@ -412,7 +420,7 @@
 		E5EF0E4860F991591406C217BD70CF1F /* QuickConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = QuickConfiguration.m; path = Sources/QuickObjectiveC/Configuration/QuickConfiguration.m; sourceTree = "<group>"; };
 		E650E5B21E098037F615A77583996B42 /* CwlDarwinDefinitions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CwlDarwinDefinitions.swift; path = Sources/Lib/CwlPreconditionTesting/CwlPreconditionTesting/CwlDarwinDefinitions.swift; sourceTree = "<group>"; };
 		E6CFE9E1EB22C51F194AE2F7583E015F /* OTTLicensedURLService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTLicensedURLService.swift; sourceTree = "<group>"; };
-		E7CF3EDBFDC2768169A347478CF49DC8 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Quick.framework; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7CF3EDBFDC2768169A347478CF49DC8 /* Quick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Quick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7EA48E5093077F2F13B8F590158D98B /* Pods-NetKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetKit_Example-dummy.m"; sourceTree = "<group>"; };
 		E8C09F1A9E1B1F7C6B2A7B5E59330B64 /* OTTUserService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = OTTUserService.swift; sourceTree = "<group>"; };
 		E9B33B923F00A988E14549447540E774 /* BeLessThan.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = BeLessThan.swift; path = Sources/Nimble/Matchers/BeLessThan.swift; sourceTree = "<group>"; };
@@ -489,7 +497,6 @@
 				5ABB8D942E30AC0DE680EEF6EF2A59C6 /* OTT */,
 				88C9D118363D85D2D793AB1D4E1FA02E /* OVP */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -521,7 +528,6 @@
 			children = (
 				4DA22F59BEF38E969E0164B796279C2B /* Core */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -532,7 +538,6 @@
 				0B4B87277125321B315C603353978CDB /* OTTObjectMapper.swift */,
 				7D0EE4FF1998A38EC272E86468F1F06A /* OTTResponseParser.swift */,
 			);
-			name = Parsers;
 			path = Parsers;
 			sourceTree = "<group>";
 		};
@@ -542,7 +547,6 @@
 				63AA02016E17035D443A98E1E1D5CA53 /* RequestExecutor.swift */,
 				B9871CF6ED26D3569F1BA8D9B8C60FAE /* implementors */,
 			);
-			name = Executor;
 			path = Executor;
 			sourceTree = "<group>";
 		};
@@ -573,7 +577,6 @@
 			children = (
 				1F3E4C1DBE6F462A160FC1A2446B4D76 /* Classes */,
 			);
-			name = NetKit;
 			path = NetKit;
 			sourceTree = "<group>";
 		};
@@ -593,7 +596,6 @@
 				DA3DEEE50C0A76D1306142DF1D46536F /* OVPSource.swift */,
 				152AF35A4CBD2BF87320ABA5CB4D0ABB /* OVPStartWidgetSessionResponse.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -602,7 +604,6 @@
 			children = (
 				E8B5A5F4EDC1FFC77BCD2E5286C90520 /* Classes */,
 			);
-			name = NetKit;
 			path = NetKit;
 			sourceTree = "<group>";
 		};
@@ -614,7 +615,6 @@
 				7585756559CCDE93762FC9D55E0CE5B6 /* Response */,
 				BE49FAAC19DD969EF09DDF6D56281548 /* Session */,
 			);
-			name = Core;
 			path = Core;
 			sourceTree = "<group>";
 		};
@@ -653,7 +653,6 @@
 				2ABA1A585410D343C924C16C1F6470BC /* XCTestSuite+QuickTestSuiteBuilder.m */,
 				F85FB3A732DA36A75EB6F5B8C8CBC64F /* Support Files */,
 			);
-			name = Quick;
 			path = Quick;
 			sourceTree = "<group>";
 		};
@@ -665,7 +664,6 @@
 				F97B43FCE367C01D741371124F1E9019 /* Services */,
 				82ECFD2160D16E40E61DE151D01109F3 /* Session */,
 			);
-			name = OTT;
 			path = OTT;
 			sourceTree = "<group>";
 		};
@@ -710,7 +708,6 @@
 				087AB4B4D891ABB6622A4A5BED16DF56 /* OVPObjectMapper.swift */,
 				7931262268FD701E73F585470A1D330C /* OVPResponseParser.swift */,
 			);
-			name = Parsers;
 			path = Parsers;
 			sourceTree = "<group>";
 		};
@@ -721,7 +718,6 @@
 				2818B01F516F7FF79B6CA54C2586DEBF /* ResponseSerializer.swift */,
 				7D460227C3ACDDFBC19A0E19FD7B7070 /* Result.swift */,
 			);
-			name = Response;
 			path = Response;
 			sourceTree = "<group>";
 		};
@@ -756,7 +752,6 @@
 			children = (
 				40A19EE229DB0ABD8FED9530A05B8DE7 /* OTTSessionManager.swift */,
 			);
-			name = Session;
 			path = Session;
 			sourceTree = "<group>";
 		};
@@ -773,7 +768,6 @@
 			children = (
 				96F1047FDE6D4871DFC3BCB291FB4724 /* OVPSessionManager.swift */,
 			);
-			name = Session;
 			path = Session;
 			sourceTree = "<group>";
 		};
@@ -785,7 +779,6 @@
 				EB3B0BCEBEEE7DAC63203AB9349D0651 /* Services */,
 				889D33A8E0346017CEB503D76B0AAE27 /* Session */,
 			);
-			name = OVP;
 			path = OVP;
 			sourceTree = "<group>";
 		};
@@ -813,7 +806,6 @@
 				5A026AB69F31159A7F23517EA6F2B837 /* SwiftyJSON.swift */,
 				3256BC42260708DDB9E0F439D93B3B0B /* Support Files */,
 			);
-			name = SwiftyJSON;
 			path = SwiftyJSON;
 			sourceTree = "<group>";
 		};
@@ -833,8 +825,10 @@
 				B2E48E3FE8E5BFA3D12CC35908383C20 /* OTTPlaybackSource.swift */,
 				EBD46B1F567816240341759FF5AF690F /* OTTRefreshedSession.swift */,
 				23065D5B7E26829E39527400BB9D5E10 /* OTTSession.swift */,
+				1888CAE41F0B8EA200B28352 /* OTTFollowDataBaseResponse.swift */,
+				1888CAE51F0B8EA200B28352 /* OTTFollowTvSeriesResponse.swift */,
+				1888CAE61F0B8EA200B28352 /* OTTGetNotificationSettingsResponse.swift */,
 			);
-			name = Model;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -915,7 +909,6 @@
 				6A799D9662821BB1AE8EDE7CE5396548 /* XCTestObservationCenter+Register.m */,
 				7AB543685CD0F9A6409C9DB9E46666FC /* Support Files */,
 			);
-			name = Nimble;
 			path = Nimble;
 			sourceTree = "<group>";
 		};
@@ -933,7 +926,6 @@
 			children = (
 				66F0C7FD31A39B6D1D828E216E7C9C95 /* USRExecutor.swift */,
 			);
-			name = implementors;
 			path = implementors;
 			sourceTree = "<group>";
 		};
@@ -942,7 +934,6 @@
 			children = (
 				DE611E0D5B989E0F4C16C438D760D561 /* SessionProvider.swift */,
 			);
-			name = Session;
 			path = Session;
 			sourceTree = "<group>";
 		};
@@ -963,7 +954,6 @@
 				A025A1ABD37A912C036CCEB62C55EC9A /* Request.swift */,
 				C43A94DB9EB76D936CFCD331BF70F4C3 /* RequestConfiguration.swift */,
 			);
-			name = Request;
 			path = Request;
 			sourceTree = "<group>";
 		};
@@ -972,7 +962,6 @@
 			children = (
 				0B4809966F85D43B7A3652FF796FA69A /* Services */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -1003,7 +992,6 @@
 				917DF34F643A59877066CE21D8A7EE14 /* OVPStatsService.swift */,
 				0DFC8BF923489F6030D15EF87F4C21C3 /* OVPUserService.swift */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -1024,6 +1012,7 @@
 		F97B43FCE367C01D741371124F1E9019 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1888CAE21F0B8E9500B28352 /* OTTPushNotificationServices.swift */,
 				788DAB705ADEA092C614BEE5CF720FFE /* BookmarkService.swift */,
 				89FB86ADF9E4C25ADEC43BEE671C2F97 /* MediaMarkService.swift */,
 				3B26112FB98AADE16146843D6176E3CC /* OTTAssetService.swift */,
@@ -1033,7 +1022,6 @@
 				E8C09F1A9E1B1F7C6B2A7B5E59330B64 /* OTTUserService.swift */,
 				F012F181E4C55789FEA1BA686E7C7B1E /* PhoenixAPIDefines.swift */,
 			);
-			name = Services;
 			path = Services;
 			sourceTree = "<group>";
 		};
@@ -1354,12 +1342,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC4AB9E1ACFB7F7649762EA9775D4AAE /* BookmarkService.swift in Sources */,
+				1888CAE81F0B8EA200B28352 /* OTTFollowTvSeriesResponse.swift in Sources */,
 				A4C92DA3FC6FA7ABDBB2A1319D2E3110 /* KalturaMultiRequestBuilder.swift in Sources */,
 				9359EC7BF365C1B250B8B67EB7C36A3F /* KalturaNetKit-dummy.m in Sources */,
 				5066D34A018FA18EB4E850F8D4588D61 /* KalturaRequestBuilder.swift in Sources */,
 				001CC59432AA972AFD1F47A2589BBE18 /* LiveStatsService.swift in Sources */,
 				DE4A485E85B2E54DDAC2C52602FC0468 /* MediaMarkService.swift in Sources */,
 				997F5A255E7848F6A568E572D7B3064D /* OTTAsset.swift in Sources */,
+				1888CAE31F0B8E9500B28352 /* OTTPushNotificationServices.swift in Sources */,
 				C5DE654ACFBFAC96E045A717DDBAE3ED /* OTTAssetService.swift in Sources */,
 				4029F32F8E4EA140D99705569DF3B4E6 /* OTTBaseObject.swift in Sources */,
 				F8B7DD6F03CE8C456D59A67E6A624E30 /* OTTDrmData.swift in Sources */,
@@ -1404,6 +1394,8 @@
 				3CD1A2700EF2CB6EAFF9B6C51037ABF3 /* PhoenixAPIDefines.swift in Sources */,
 				C18F74B701048EE931BEC76B8C44693D /* Request.swift in Sources */,
 				D9DA7C0674F422937074C47BE625131D /* RequestConfiguration.swift in Sources */,
+				1888CAE91F0B8EA200B28352 /* OTTGetNotificationSettingsResponse.swift in Sources */,
+				1888CAE71F0B8EA200B28352 /* OTTFollowDataBaseResponse.swift in Sources */,
 				E7AFCB63DCF7659AB0D14FEEDA405F4E /* RequestExecutor.swift in Sources */,
 				E4CC5AC4530B17399BBBFE310EC6CFAD /* RequestExtension.swift in Sources */,
 				BDD71581BA2FFBD79934B9EE6938D9C5 /* Response.swift in Sources */,
