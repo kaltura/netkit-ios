@@ -35,6 +35,10 @@ class OTTObjectMapper: NSObject {
                 return OTTPlaybackContext.self
             case "KalturaTimeShiftedTvPartnerSettings":
                 return OTTKalturaTimeShiftedTvPartnerSettings.self
+            case "KalturaNotificationSettings":
+                return OTTGetNotificationSettingsResponse.self
+            case "KalturaFollowTvSeries":
+                return OTTFollowTvSeriesResponse.self                
             default:
                 return nil
             }
