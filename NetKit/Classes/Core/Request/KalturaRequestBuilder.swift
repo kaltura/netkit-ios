@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 
 public class KalturaRequestBuilder: RequestBuilder {
@@ -40,5 +41,23 @@ public class KalturaRequestBuilder: RequestBuilder {
         
     }
        
-
+    
+    @discardableResult
+    public func setClientTag(clientTag: String) -> Self {
+        self.setBody(key: "clientTag", value: JSON(clientTag))
+        return self
+    }
+    
+    @discardableResult
+    public func setApiVersion(apiVersion: String) -> Self {
+        self.setBody(key: "apiVersion", value: JSON(apiVersion))
+        return self
+    }
+    
+    @discardableResult
+    public func setFormat(format: Int) -> Self {
+        self.setBody(key: "format", value: JSON(format))
+        return self
+    }
+    
 }
