@@ -62,9 +62,9 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
         if let jsonBody = self.jsonBody{
             let remainingJsonAsString: String? = jsonBody.rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions())
             if let jsonString = remainingJsonAsString{
-                var jsonWithoutLastChar = String(jsonString.characters.dropLast())
+                var jsonWithoutLastChar = String(jsonString[..<jsonString.index(before: jsonString.endIndex)])
                 
-                jsonWithoutLastChar = String(jsonWithoutLastChar.characters.dropFirst())
+                jsonWithoutLastChar = String(jsonWithoutLastChar[jsonString.index(after: jsonString.startIndex)...])
                 data?.append((jsonWithoutLastChar.data(using: String.Encoding.utf8))!)
             }
         }
