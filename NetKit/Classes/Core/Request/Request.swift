@@ -179,7 +179,11 @@ public struct RequestElement: Request {
             
         }
         
-        return RequestElement(requestId: self.requestId, method:self.method , url: self.url, dataBody: bodyData, headers: self.headers, timeout: self.timeout, configuration: self.configuration,responseSerializer: self.responseSerializer, completion: self.completion)
+        return RequestElement(requestId: self.requestId, method:self.method , url: self.url, dataBody: bodyData, headers: self.headers, timeout: self.timeout, configuration: self.configuration, responseSerializer: self.responseSerializer, completion: self.onComplete)
+    }
+    
+    internal func onComplete(_ response: Response) -> Void {
+        completion?(response)
     }
 }
 

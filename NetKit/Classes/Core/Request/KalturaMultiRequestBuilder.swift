@@ -26,7 +26,7 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
     override public func build() -> Request {
         
         let data = self.kalturaMultiRequestData()
-        let request = RequestElement(requestId: self.requestId, method: self.method, url: self.url, dataBody: data, headers: self.headers, timeout: self.timeout, configuration: self.configuration, responseSerializer: self.responseSerializer, completion: self.completion)
+        let request = RequestElement(requestId: self.requestId, method: self.method, url: self.url, dataBody: data, headers: self.headers, timeout: self.timeout, configuration: self.configuration, responseSerializer: self.responseSerializer, completion: self.onComplete)
         
         return request
     }
@@ -37,7 +37,7 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
             self.jsonBody = JSON([String: Any]())
         }
         
-        for (index, request)  in self.requests.enumerated() {
+        for (index, request) in self.requests.enumerated() {
             if let body = request.jsonBody {
                 var singleRequestBody: JSON = body
                 singleRequestBody["action"] = JSON(request.action ?? "")
@@ -50,7 +50,7 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
         let suffix = "}"
         var data = prefix.data(using: String.Encoding.utf8)
         
-        for  index in 1...self.requests.count {
+        for index in 1...self.requests.count {
             let requestBody = self.jsonBody?[String(index)].rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions())?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
             let requestBodyData = requestBody?.data(using: String.Encoding.utf8)
             data?.append("\"\(index)\":".data(using: String.Encoding.utf8)!)
@@ -59,7 +59,7 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
             _ = self.jsonBody?.dictionaryObject?.removeValue(forKey: String(index))
         }
         
-        if let jsonBody = self.jsonBody{
+        if let jsonBody = self.jsonBody {
             let remainingJsonAsString: String? = jsonBody.rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions())
             if let jsonString = remainingJsonAsString{
                 var jsonWithoutLastChar = String(jsonString[..<jsonString.index(before: jsonString.endIndex)])
@@ -72,6 +72,26 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
         data?.append(suffix.data(using: String.Encoding.utf8)!)
         
         return data
+    }
+    
+    override func onComplete(_ response: Response) {
+        // calling on complete of each request
+        var allResponse: [Any] = []
+        if let dict = response.data as? [String: Any], let responses = dict["result"] as? [Any] {
+            allResponse = responses
+        }
+        else if let responses = response.data as? [Any] {
+            allResponse = responses
+        }
+        for (index, request) in self.requests.enumerated() {
+            let singleResponse = allResponse[index]
+            let response = Response.init(data: singleResponse, error: response.error)
+            request.completion?(response)
+        }
+        
+        completion?(response)
+        
+        return
     }
 }
 
