@@ -2,12 +2,11 @@ use_frameworks!
 
 target 'NetKit_Example' do
   pod 'KalturaNetKit', :path => '../'
-  pod 'KalturaNetKit/Services', :path => '../'
-
+  
   target 'NetKit_Tests' do
     inherit! :search_paths
 
-    pod 'Quick', '~> 1.0.0'
-  pod 'Nimble', '~> 5.1.1'
+    pod 'Quick'
+    pod 'Nimble'
   end
 end

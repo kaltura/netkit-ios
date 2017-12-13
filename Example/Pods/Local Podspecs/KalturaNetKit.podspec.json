@@ -18,25 +18,10 @@
     "ios": "8.0",
     "tvos": "9.0"
   },
-  "default_subspecs": "Core",
-  "subspecs": [
-    {
-      "name": "Core",
-      "source_files": "NetKit/Classes/Core/**/*",
-      "dependencies": {
-        "SwiftyJSON": [
+  "source_files": "NetKit/Classes/**/*",
+  "dependencies": {
+    "SwiftyJSON": [
 
-        ]
-      }
-    },
-    {
-      "name": "Services",
-      "source_files": "NetKit/Classes/Services/**/*",
-      "dependencies": {
-        "KalturaNetKit/Core": [
-
-        ]
-      }
-    }
-  ]
+    ]
+  }
 }
