@@ -76,17 +76,19 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
     
     override func onComplete(_ response: Response) {
         // calling on complete of each request
-        var allResponse: [Any] = []
+        var allResponses: [Any] = []
         if let dict = response.data as? [String: Any], let responses = dict["result"] as? [Any] {
-            allResponse = responses
+            allResponses = responses
+        } else if let responses = response.data as? [Any] {
+            allResponses = responses
         }
-        else if let responses = response.data as? [Any] {
-            allResponse = responses
-        }
-        for (index, request) in self.requests.enumerated() {
-            let singleResponse = allResponse[index]
-            let response = Response.init(data: singleResponse, error: response.error)
-            request.completion?(response)
+        
+        if allResponses.count == self.requests.count {
+            for (index, request) in self.requests.enumerated() {
+                let singleResponse = allResponses[index]
+                let response = Response.init(data: singleResponse, error: response.error)
+                request.completion?(response)
+            }
         }
         
         completion?(response)
