@@ -12,7 +12,7 @@ import SwiftyJSON
 public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
     
     var requests: [KalturaRequestBuilder] = [KalturaRequestBuilder]()
-
+    
     public init?(url: String) {
         super.init(url: url, service: "multirequest", action: nil)
     }
@@ -26,12 +26,20 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
     override public func build() -> Request {
         
         let data = self.kalturaMultiRequestData()
-        let request = RequestElement(requestId: self.requestId, method: self.method, url: self.url, dataBody: data, headers: self.headers, timeout: self.timeout, configuration: self.configuration, responseSerializer: self.responseSerializer, completion: self.completion)
+        let request = RequestElement(requestId: self.requestId,
+                                     method: self.method,
+                                     url: self.url,
+                                     dataBody: data,
+                                     headers: self.headers,
+                                     timeout: self.timeout,
+                                     configuration: self.configuration,
+                                     responseSerializer: self.responseSerializer,
+                                     completion: self.completion)
         
         return request
     }
     
-    func kalturaMultiRequestData() -> Data? {
+    func kalturaMultiRequestData() -> Data {
         
         if self.jsonBody == nil {
             self.jsonBody = JSON([String: Any]())
@@ -48,31 +56,46 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
         
         let prefix = "{"
         let suffix = "}"
-        var data = prefix.data(using: String.Encoding.utf8)
+        
+        var data = Data()
+        
+        if let prefixData = prefix.data(using: String.Encoding.utf8) {
+            data.append(prefixData)
+        }
         
         for  index in 1...self.requests.count {
             let requestBody = self.jsonBody?[String(index)].rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions())?.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-            let requestBodyData = requestBody?.data(using: String.Encoding.utf8)
-            data?.append("\"\(index)\":".data(using: String.Encoding.utf8)!)
-            data?.append(requestBodyData!)
-            data?.append(",".data(using: String.Encoding.utf8)!)
+            
+            if let indexData = "\"\(index)\":".data(using: String.Encoding.utf8) {
+                data.append(indexData)
+            }
+            
+            if let requestBodyData = requestBody?.data(using: String.Encoding.utf8) {
+                data.append(requestBodyData)
+            }
+            
+            if let separatorData = ",".data(using: String.Encoding.utf8) {
+                data.append(separatorData)
+            }
+            
             _ = self.jsonBody?.dictionaryObject?.removeValue(forKey: String(index))
         }
         
         if let jsonBody = self.jsonBody{
             let remainingJsonAsString: String? = jsonBody.rawString(String.Encoding.utf8, options: JSONSerialization.WritingOptions())
             if let jsonString = remainingJsonAsString{
-                var jsonWithoutLastChar = String(jsonString.characters.dropLast())
-                
-                jsonWithoutLastChar = String(jsonWithoutLastChar.characters.dropFirst())
-                data?.append((jsonWithoutLastChar.data(using: String.Encoding.utf8))!)
+                var jsonWithoutFirstAndLastChar = String(jsonString.dropLast())
+                jsonWithoutFirstAndLastChar = String(jsonWithoutFirstAndLastChar.dropFirst())
+                if let remainingData = jsonWithoutFirstAndLastChar.data(using: String.Encoding.utf8) {
+                    data.append(remainingData)
+                }
             }
         }
         
-        data?.append(suffix.data(using: String.Encoding.utf8)!)
+        if let suffixData = suffix.data(using: String.Encoding.utf8) {
+            data.append(suffixData)
+        }
         
         return data
     }
 }
-
-
