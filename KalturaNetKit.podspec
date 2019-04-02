@@ -4,7 +4,7 @@ suffix = '-dev'   # Dev mode
 
 Pod::Spec.new do |s|
   s.name             = 'KalturaNetKit'
-  s.version          = '1.0.0' + suffix
+  s.version          = '1.1.0' + suffix
   s.summary          = 'NetKit: Kaltura Mobile Client Network SDK'
   s.homepage         = 'https://github.com/kaltura/netkit-ios'
   s.license          = { :type => 'AGPLv3', :text => 'AGPLv3' }
