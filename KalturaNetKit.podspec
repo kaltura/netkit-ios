@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |sp|
     sp.source_files = 'NetKit/Classes/Core/**/*'
-    sp.dependency 'SwiftyJSON'
+    sp.dependency 'SwiftyJSON', '3.1.4'
   end
 
   s.subspec 'Services' do |sp|
