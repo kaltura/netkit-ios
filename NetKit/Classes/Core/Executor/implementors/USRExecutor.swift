@@ -114,7 +114,7 @@ import UIKit
     
         if let taskId = self.taskIdByRequestID[request.requestId]{
             
-            let taskIndex = self.tasks.index(where: { (taskInArray:URLSessionDataTask) -> Bool in
+            let taskIndex = self.tasks.firstIndex(where: { (taskInArray:URLSessionDataTask) -> Bool in
                 
                 if taskInArray.taskIdentifier == taskId {
                     return true
