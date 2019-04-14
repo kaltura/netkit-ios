@@ -1,10 +1,9 @@
 language: swift
-osx_image: xcode10.1
+osx_image: xcode10.2
 before_install:
-  - gem install cocoapods # Since Travis is not always on latest version
-script:
   - pod repo update
-  - pod lib lint --fail-fast --verbose
+script:
+  - ./travis-build.sh
 notifications:
   email:
     recipients:
