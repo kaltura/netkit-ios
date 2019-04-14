@@ -1,9 +1,9 @@
-# NetKit
+# Kaltura NetKit
 
-[![CI Status](http://img.shields.io/travis/srivkas@gmail.com/NetKit.svg?style=flat)](https://travis-ci.org/srivkas@gmail.com/NetKit)
-[![Version](https://img.shields.io/cocoapods/v/NetKit.svg?style=flat)](http://cocoapods.org/pods/NetKit)
-[![License](https://img.shields.io/cocoapods/l/NetKit.svg?style=flat)](http://cocoapods.org/pods/NetKit)
-[![Platform](https://img.shields.io/cocoapods/p/NetKit.svg?style=flat)](http://cocoapods.org/pods/NetKit)
+[![Build Status](https://travis-ci.org/kaltura/netkit-ios.svg?branch=develop)](https://travis-ci.org/kaltura/netkit-ios)
+[![Version](https://img.shields.io/cocoapods/v/KalturaNetKit.svg?style=flat)](http://cocoapods.org/pods/KalturaNetKit)
+[![License](https://img.shields.io/cocoapods/l/KalturaNetKit.svg?style=flat)](http://cocoapods.org/pods/KalturaNetKit)
+[![Platform](https://img.shields.io/cocoapods/p/KalturaNetKit.svg?style=flat)](http://cocoapods.org/pods/KalturaNetKit)
 
 ## Example
 
