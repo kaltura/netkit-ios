@@ -37,8 +37,9 @@ public class KalturaRequestBuilder: RequestBuilder {
         
         self.add(headerKey: "Content-Type", headerValue: "application/json").add(headerKey: "Accept", headerValue: "application/json")
         self.set(method: .post)
-        
     }
        
-
+    public override var description: String {
+        return super.description + "\nService: \(service ?? "")\nAction: \(action ?? "")"
+    }
 }

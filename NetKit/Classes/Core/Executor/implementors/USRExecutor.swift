@@ -8,134 +8,192 @@
 
 import UIKit
 
-
 @objc public class USRExecutor: NSObject, RequestExecutor, URLSessionDelegate {
     
     var tasks: [URLSessionDataTask] = [URLSessionDataTask]()
     var taskIdByRequestID: [String: Int] = [String: Int]()
+    var taskRetryCountByRequestID: [String: Int] = [String: Int]()
+    var usedRequestConfiguration: RequestConfiguration?
     
     enum ResponseError: Error {
         case emptyOrIncorrectURL
         case incorrectJSONBody
     }
     
-    public static let shared = USRExecutor()
+    @objc public static let shared = USRExecutor()
+    @objc public var requestConfiguration: RequestConfiguration = RequestConfiguration()
     
-    public func send(request r: Request){
+    func clean(request: Request) {
         
-        var request: URLRequest = URLRequest(url: r.url)
-        
-        //handle http method
-        if let method = r.method {
-            request.httpMethod = method.value
+        if let index = taskIndexForRequest(request: request) {
+            tasks.remove(at: index)
         }
-        
-        // handle body
-        
-        if let data = r.dataBody {
-            request.httpBody = data
-        }
-        
-        // handle headers
-        if let headers = r.headers{
-            for (headerKey,headerValue) in headers{
-                request.setValue(headerValue, forHTTPHeaderField: headerKey)
+        taskRetryCountByRequestID.removeValue(forKey: request.requestId)
+        taskIdByRequestID.removeValue(forKey: request.requestId)
+    }
+    
+    public func taskIndexForRequest(request: Request) -> Int? {
+    
+        if let taskId = self.taskIdByRequestID[request.requestId] {
+            
+            let taskIndex = self.tasks.firstIndex(where: { (taskInArray:URLSessionDataTask) -> Bool in
+                
+                if taskInArray.taskIdentifier == taskId {
+                    return true
+                } else {
+                    return false
+                }
+            })
+            
+            if let index = taskIndex {
+                return index
+            } else {
+                return nil
             }
+
+        } else {
+            return nil
+        }
+    }
+    
+    // MARK: - RequestExecutor
+    
+    public func send(request: Request){
+        
+        var urlRequest: URLRequest = URLRequest(url: request.url)
+        
+        // Handle http method
+        if let method = request.method {
+            urlRequest.httpMethod = method.value
+        }
+        
+        // Handle body
+        if let data = request.dataBody {
+            urlRequest.httpBody = data
+        }
+        
+        // Handle headers
+        if let headers = request.headers {
+            for (headerKey,headerValue) in headers {
+                urlRequest.setValue(headerValue, forHTTPHeaderField: headerKey)
+            }
+        }
+        
+        // We will use the request's requestConfiguration if it was configured,
+        // otherwise we will use the executor's requestConfiguration.
+        if let requestConfiguration = request.configuration {
+            usedRequestConfiguration = requestConfiguration
+        } else {
+            usedRequestConfiguration = requestConfiguration
         }
         
         let session: URLSession!
         
-        if let conf = r.configuration, conf.ignoreLocalCache {
-            let configuration = URLSessionConfiguration.default
-            configuration.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
-            session = URLSession(configuration: configuration)
+        if let configuration = usedRequestConfiguration, configuration.ignoreLocalCache {
+            let sessionConfiguration = URLSessionConfiguration.default
+            sessionConfiguration.requestCachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalCacheData
+            session = URLSession(configuration: sessionConfiguration)
         } else {
             session = URLSession.shared
         }
         
-        var task: URLSessionDataTask? = nil
-        // settings headers:
-        task = session.dataTask(with: request) { (data, response, error) in
+        let urlSessionDataTask = session.dataTask(with: urlRequest) { [weak self] (data, response, error) in
+            guard let self = self else { return }
             
-            let index = self.taskIndexForRequest(request: r)
+            // Remove the task before we create a new one in case of a retry.
+            let index = self.taskIndexForRequest(request: request)
             if let i = index {
                self.tasks.remove(at: i)
             }
+            
+            // Perform retry in case the response code is 400 - 599.
+            if let httpResponse = response as? HTTPURLResponse {
+                if httpResponse.statusCode >= 400 && httpResponse.statusCode < 600 {
+                    let retryCount = self.usedRequestConfiguration?.retryCount ?? 0
+                    let taskRetryCount = self.taskRetryCountByRequestID[request.requestId] ?? 0
+                    if taskRetryCount < retryCount {
+                        self.taskRetryCountByRequestID[request.requestId] = taskRetryCount + 1
+                        self.send(request: request)
+                        return
+                    }
+                }
+            }
         
+            // Retry was not performed, clean the request and call the completion block.
+            self.clean(request: request)
             DispatchQueue.main.async {
-                if let completion = r.completion {
+                if let completion = request.completion {
                     
-                    if let error = error as NSError? {
-                        if error.code == NSURLErrorCancelled {
-                            // canceled
-                        } else {
-                            let result = Response(data: nil, error:error)
+                    // If we got an error because the request failed, send that error.
+                    if let err = error {
+                        let nsError = err as NSError
+                        switch nsError.code {
+                        case NSURLErrorCancelled:
+                            // Canceled - no need to call the completion block
+                            break
+                        default:
+                            let result = Response(data: nil, error: nsError)
                             completion(result)
-                            // some other error
                         }
                         return
                     }
                     
-                    if let d = data {
+                    // If the response code is 400 - 599, send that as the error.
+                    if let httpResponse = response as? HTTPURLResponse {
+                        if httpResponse.statusCode >= 400 && httpResponse.statusCode < 600 {
+                            var json: Any?
+                            if let d = data, !d.isEmpty {
+                                json = try? JSONSerialization.jsonObject(with: d, options: JSONSerialization.ReadingOptions(rawValue:0))
+                            }
+                            let nsError = NSError(domain: "NetKitHttpResponseError", code: httpResponse.statusCode, userInfo: nil)
+                            let result = Response(data: json, error: nsError)
+                            completion(result)
+                            return
+                        }
+                    }
+                    
+                    // If we got data returned from the server and it's not empty, parse and return it.
+                    if let d = data, !d.isEmpty {
                         do {
-                            let json = try r.responseSerializer.serialize(data: d)
-                            let result = Response(data: json, error:nil)
+                            let json = try request.responseSerializer.serialize(data: d)
+                            let result = Response(data: json, error: nil)
                             completion(result)
                         } catch {
-                            let result = Response(data: nil, error:error)
+                            // The parsing error will be sent.
+                            let result = Response(data: nil, error: error)
                             completion(result)
-
                         }
-                    } else {
-                        let result = Response(data: nil, error:nil)
+                        return
+                    }
+                    // Will arrive here only if there was no request error, the response status code was 100 - 399, and the data is empty.
+                     else {
+                        let result = Response(data: nil, error: error)
                         completion(result)
                     }
                 }
             }
         }
         
-        if let tsk = task{
-            self.taskIdByRequestID[r.requestId] = task?.taskIdentifier
-            self.tasks.append(tsk)
-            tsk.resume()
+        taskIdByRequestID[request.requestId] = urlSessionDataTask.taskIdentifier
+        if taskRetryCountByRequestID[request.requestId] == nil {
+            taskRetryCountByRequestID[request.requestId] = 0
         }
+        tasks.append(urlSessionDataTask)
+        urlSessionDataTask.resume()
     }
     
-    public func cancel(request:Request){
+    public func cancel(request: Request) {
         
-        let index = self.taskIndexForRequest(request: request)
-        if let i = index {
-            let task = self.tasks[i]
+        if let index = taskIndexForRequest(request: request) {
+            let task = tasks[index]
             task.cancel()
         }
-    }
-    
-    public func taskIndexForRequest(request:Request) -> Int?{
-    
-        if let taskId = self.taskIdByRequestID[request.requestId]{
-            
-            let taskIndex = self.tasks.firstIndex(where: { (taskInArray:URLSessionDataTask) -> Bool in
-                
-                if taskInArray.taskIdentifier == taskId {
-                    return true
-                }else{
-                    return false
-                }
-            })
-            
-            if let index = taskIndex{
-                return index
-            } else {
-                return nil
-            }
- 
-        } else {
-            return nil
-        }
-    }
-    
-    public func clean(){
         
+        clean(request: request)
+    }
+    
+    public func clean() {
+    
     }
     
     // MARK: URLSessionDelegate
