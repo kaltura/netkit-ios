@@ -73,6 +73,10 @@ public struct RequestElement: Request {
         }
     }
     
+    public override var description: String {
+        return "\nMethod: \(method?.value ?? "")\nURL: \(url.description)\nParams: \(urlParams?.description ?? "")\nBody: \(jsonBody ?? "")"
+    }
+    
     @discardableResult
     public func set(url: URL) -> Self{
         self.url = url

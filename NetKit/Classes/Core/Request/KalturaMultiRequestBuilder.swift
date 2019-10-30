@@ -17,6 +17,17 @@ public class KalturaMultiRequestBuilder: KalturaRequestBuilder {
         super.init(url: url, service: "multirequest", action: nil)
     }
     
+    public override var description: String {
+        var string = ""
+        for request in requests {
+            string.append("[")
+            string.append(request.description)
+            string.append("\n]\n")
+        }
+        
+        return string
+    }
+    
     @discardableResult
     public func add(request:KalturaRequestBuilder) -> Self {
         self.requests.append(request)
