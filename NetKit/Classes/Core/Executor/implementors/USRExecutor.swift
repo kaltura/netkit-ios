@@ -8,11 +8,28 @@
 
 import UIKit
 
+class RequestTask: NSObject {
+    var requestId: String
+    var retryCount: Int = 0
+    var dataTask: URLSessionDataTask
+    
+    init(requestId: String, dataTask: URLSessionDataTask) {
+        self.requestId = requestId
+        self.dataTask = dataTask
+        super.init()
+    }
+    
+    override var description: String {
+        return super.description + "RequestId: \(requestId) RetryCount: \(retryCount) DataTask: \(dataTask)"
+    }
+}
+
 @objc public class USRExecutor: NSObject, RequestExecutor, URLSessionDelegate {
     
-    var tasks: [URLSessionDataTask] = [URLSessionDataTask]()
-    var taskIdByRequestID: [String: Int] = [String: Int]()
-    var taskRetryCountByRequestID: [String: Int] = [String: Int]()
+    private let concurrentTaskQueue = DispatchQueue(label: "com.KalturaNetKit.USRExecutor.taskQueue",
+                                                    attributes: .concurrent)
+    
+    var requestTasks: [String: RequestTask] = [:] 
     var usedRequestConfiguration: RequestConfiguration?
     
     enum ResponseError: Error {
@@ -23,36 +40,11 @@ import UIKit
     @objc public static let shared = USRExecutor()
     @objc public var requestConfiguration: RequestConfiguration = RequestConfiguration()
     
-    func clean(request: Request) {
-        
-        if let index = taskIndexForRequest(request: request) {
-            tasks.remove(at: index)
-        }
-        taskRetryCountByRequestID.removeValue(forKey: request.requestId)
-        taskIdByRequestID.removeValue(forKey: request.requestId)
-    }
+    // MARK: - Private Methods
     
-    public func taskIndexForRequest(request: Request) -> Int? {
-    
-        if let taskId = self.taskIdByRequestID[request.requestId] {
-            
-            let taskIndex = self.tasks.firstIndex(where: { (taskInArray:URLSessionDataTask) -> Bool in
-                
-                if taskInArray.taskIdentifier == taskId {
-                    return true
-                } else {
-                    return false
-                }
-            })
-            
-            if let index = taskIndex {
-                return index
-            } else {
-                return nil
-            }
-
-        } else {
-            return nil
+    func remove(request: Request) {
+        self.concurrentTaskQueue.async(flags: .barrier) {
+            self.requestTasks.removeValue(forKey: request.requestId)
         }
     }
     
@@ -100,27 +92,32 @@ import UIKit
         let urlSessionDataTask = session.dataTask(with: urlRequest) { [weak self] (data, response, error) in
             guard let self = self else { return }
             
-            // Remove the task before we create a new one in case of a retry.
-            let index = self.taskIndexForRequest(request: request)
-            if let i = index {
-               self.tasks.remove(at: i)
-            }
-            
             // Perform retry in case the response code is 400 - 599.
             if let httpResponse = response as? HTTPURLResponse {
                 if httpResponse.statusCode >= 400 && httpResponse.statusCode < 600 {
+                    // Check if it exists and wasn't canceled
+                    var task: RequestTask?
+                    self.concurrentTaskQueue.sync {
+                        task = self.requestTasks[request.requestId]
+                    }
+                    
+                    guard let requestTask = task else { return }
+                    
                     let retryCount = self.usedRequestConfiguration?.retryCount ?? 0
-                    let taskRetryCount = self.taskRetryCountByRequestID[request.requestId] ?? 0
-                    if taskRetryCount < retryCount {
-                        self.taskRetryCountByRequestID[request.requestId] = taskRetryCount + 1
+                    
+                    if requestTask.retryCount < retryCount {
+                        self.concurrentTaskQueue.async(flags: .barrier) {
+                            requestTask.retryCount += 1
+                        }
                         self.send(request: request)
                         return
                     }
                 }
             }
         
-            // Retry was not performed, clean the request and call the completion block.
-            self.clean(request: request)
+            // Retry was not performed, remove the request and call the completion block.
+            self.remove(request: request)
+            
             DispatchQueue.main.async {
                 if let completion = request.completion {
                     
@@ -174,29 +171,41 @@ import UIKit
             }
         }
         
-        taskIdByRequestID[request.requestId] = urlSessionDataTask.taskIdentifier
-        if taskRetryCountByRequestID[request.requestId] == nil {
-            taskRetryCountByRequestID[request.requestId] = 0
+        // Check if the request exists, in case of a retry
+        var requestTask: RequestTask?
+        self.concurrentTaskQueue.sync {
+            requestTask = self.requestTasks[request.requestId]
         }
-        tasks.append(urlSessionDataTask)
+        if requestTask != nil {
+            self.concurrentTaskQueue.async(flags: .barrier) {
+                requestTask?.dataTask = urlSessionDataTask
+            }
+        } else {
+            self.concurrentTaskQueue.async(flags: .barrier) {
+                self.requestTasks[request.requestId] = RequestTask(requestId: request.requestId, dataTask: urlSessionDataTask)
+            }
+        }
         urlSessionDataTask.resume()
     }
     
     public func cancel(request: Request) {
         
-        if let index = taskIndexForRequest(request: request) {
-            let task = tasks[index]
-            task.cancel()
+        var requestTask: RequestTask?
+        self.concurrentTaskQueue.sync {
+            requestTask = self.requestTasks[request.requestId]
         }
         
-        clean(request: request)
+        requestTask?.dataTask.cancel()
+        
+        remove(request: request)
     }
     
     public func clean() {
     
     }
     
-    // MARK: URLSessionDelegate
+    // MARK: - URLSessionDelegate
+    
     public func urlSession(_ session: URLSession, didBecomeInvalidWithError error: Error?){
         
     }
