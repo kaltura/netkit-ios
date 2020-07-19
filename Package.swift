@@ -4,6 +4,9 @@ import PackageDescription
 
 let package = Package(
     name: "KalturaNetKit",
+    platforms: [
+        .iOS(.v9), .tvOS(.v9)
+    ],
     products: [
         .library(
             name: "KalturaNetKit",
