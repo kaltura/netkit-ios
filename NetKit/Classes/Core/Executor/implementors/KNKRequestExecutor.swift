@@ -24,9 +24,9 @@ class RequestTask: NSObject {
     }
 }
 
-@objc public class USRExecutor: NSObject, RequestExecutor, URLSessionDelegate {
+@objc public class KNKRequestExecutor: NSObject, RequestExecutor, URLSessionDelegate {
     
-    private let concurrentTaskQueue = DispatchQueue(label: "com.KalturaNetKit.USRExecutor.taskQueue",
+    private let concurrentTaskQueue = DispatchQueue(label: "com.KalturaNetKit.KNKRequestExecutor.taskQueue",
                                                     attributes: .concurrent)
     
     var requestTasks: [String: RequestTask] = [:] 
@@ -37,7 +37,7 @@ class RequestTask: NSObject {
         case incorrectJSONBody
     }
     
-    @objc public static let shared = USRExecutor()
+    @objc public static let shared = KNKRequestExecutor()
     @objc public var requestConfiguration: RequestConfiguration = RequestConfiguration()
     
     // MARK: - Private Methods
