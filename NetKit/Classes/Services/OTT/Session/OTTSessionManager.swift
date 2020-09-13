@@ -55,7 +55,7 @@ public struct SessionInfo {
         if let exe = executor {
             self.executor = exe
         } else {
-            self.executor = USRExecutor.shared
+            self.executor = KNKRequestExecutor.shared
         }
     }
 
