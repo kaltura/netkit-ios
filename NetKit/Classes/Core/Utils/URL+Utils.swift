@@ -9,7 +9,7 @@ import Foundation
 
 public extension URL {
     
-    func appendingQueryConponent(key: String, value: String) -> URL {
+    func appendingQueryComponent(key: String, value: String) -> URL {
         guard var components = URLComponents(string: absoluteString) else { return self }
         
         var items: [URLQueryItem] = components.queryItems ??  []
