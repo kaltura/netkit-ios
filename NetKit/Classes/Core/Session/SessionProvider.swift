@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc public protocol SessionProvider: class {
+@objc public protocol SessionProvider: AnyObject {
     
     var serverURL: String { get }
     var partnerId: Int64 { get }
