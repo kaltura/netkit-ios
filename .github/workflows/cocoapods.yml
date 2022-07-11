@@ -3,7 +3,7 @@ name: CocoaPods push
 on:
   push:
     branches:
-      - "stg/*"
+      - 'stg/v[0-9]+.[0-9]+.[0-9]+'
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
