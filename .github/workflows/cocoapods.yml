@@ -15,6 +15,6 @@ jobs:
     - name: Updating CocoaPods repo
       run: pod repo update
     - name: Pod linting
-      run: pod lib lint --fail-fast --verbose"
+      run: pod lib lint --fail-fast --verbose
     - name: Print
       run: ls -al
