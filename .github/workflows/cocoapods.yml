@@ -2,8 +2,8 @@ name: CocoaPods push
 
 on:
   push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+    tags: '**'
+#       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
@@ -12,12 +12,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Updating CocoaPods repo
-      run: pod repo update
-    - name: Pod linting
-      run: pod lib lint --fail-fast --verbose"
-    - name: CocoaPods push
-      run: |
-        PODS_USER=${{ QWE }} PODS_PASS=${{ 123 }} sh .github/cocoapods_publish.sh
+#     - name: Updating CocoaPods repo
+#       run: pod repo update
+#     - name: Pod linting
+#       run: pod lib lint --fail-fast --verbose"
+#     - name: CocoaPods push
+#       run: |
+#         PODS_USER=${{ QWE }} PODS_PASS=${{ 123 }} sh .github/cocoapods_publish.sh
     - name: Print
       run: ls -al
