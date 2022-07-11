@@ -2,9 +2,8 @@ name: CocoaPods push
 
 on:
   push:
-    branches: [ "develop" ]
-  pull_request:
-    branches: [ "develop" ]
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
@@ -13,8 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: TAGS
-      run:  |
-          echo "Log level: $LEVEL"
-          echo "Tags: $TAGS"
-          echo "Environment: $ENVIRONMENT"
+    - name: Updating CocoaPods repo
+      run: pod repo update
+    - name: Pod linting
+      run: pod lib lint --fail-fast --verbose"
