@@ -16,8 +16,8 @@ jobs:
       run: pod repo update
     - name: Pod linting
       run: pod lib lint --fail-fast --verbose"
-    - name: CocoaPods push
-      run: |
-        sh .github/cocoapods_publish.sh
+#     - name: CocoaPods push
+#       run: |
+#         sh .github/cocoapods_publish.sh
     - name: Print
       run: ls -al
