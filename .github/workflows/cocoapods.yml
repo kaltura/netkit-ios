@@ -18,6 +18,6 @@ jobs:
       run: pod lib lint --fail-fast --verbose"
     - name: CocoaPods push
       run: |
-        PODS_USER="QWE" PODS_PASS="123" sh .github/cocoapods_publish.sh
+        sh .github/cocoapods_publish.sh
     - name: Print
       run: ls -al
