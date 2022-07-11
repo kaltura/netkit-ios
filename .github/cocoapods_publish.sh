@@ -10,5 +10,3 @@ EOF
 
 chmod 0600 ~/.netrc
 
-# pod spec lint --verbose
-# pod trunk push --verbose
