@@ -10,3 +10,4 @@ EOF
 
 chmod 0600 ~/.netrc
 
+pod trunk push --verbose
