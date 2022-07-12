@@ -26,6 +26,5 @@ Pod::Spec.new do |s|
     sp.source_files = 'NetKit/Classes/Services/**/*'
     sp.dependency 'KalturaNetKit/Core'
   end
-  # Test
 end
 
