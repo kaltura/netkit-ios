@@ -3,6 +3,11 @@ name: CI
 on:
   push:
     branches: [ "develop" ]
+    paths:
+      - 'NetKit/**'
+      - '.github/workflows/**'
+      - '**.podspec'
+      - 'Package.swift'
   pull_request:
     branches: [ "develop" ]
     paths:
