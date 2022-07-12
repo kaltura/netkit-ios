@@ -18,6 +18,5 @@ jobs:
       run: pod lib lint --fail-fast --verbose
     - name: CocoaPods push
       run: |
-        PODS_USER="QWE" PODS_PASS="123" sh .github/cocoapods_publish.sh
-    - name: Print
-      run: ls -al
+        PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
+        
