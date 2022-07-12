@@ -10,6 +10,7 @@ on:
       - '.github/workflows/**'
       - '**.podspec'
       - 'Package.swift'
+
 jobs:
   build:
 
