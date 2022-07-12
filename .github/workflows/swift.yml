@@ -1,6 +1,8 @@
 name: CI
 
 on:
+  push:
+    branches: [ "develop" ]
   pull_request:
     branches: [ "develop" ]
     paths:
@@ -8,7 +10,6 @@ on:
       - '.github/workflows/**'
       - '**.podspec'
       - 'Package.swift'
-
 jobs:
   build:
 
