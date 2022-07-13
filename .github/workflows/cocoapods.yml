@@ -6,7 +6,7 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
-  build:
+  pods_push:
 
     runs-on: macos-latest
 
@@ -19,4 +19,10 @@ jobs:
     - name: CocoaPods push
       run: |
         PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
+    - name: Release notes
+    - uses: ncipollo/release-action@v1
+      with:
+        body: "TBA"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        draft: true
         
