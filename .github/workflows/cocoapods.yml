@@ -19,8 +19,8 @@ jobs:
     - name: CocoaPods push
       run: |
         PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
-    - name: Release notes
     - uses: ncipollo/release-action@v1
+    - name: Release notes
       with:
         body: "TBA"
         token: ${{ secrets.GITHUB_TOKEN }}
