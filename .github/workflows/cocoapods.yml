@@ -24,5 +24,4 @@ jobs:
         body: "TBA"
         token: ${{ secrets.GITHUB_TOKEN }}
         draft: true
-    - name: Release notes
         
