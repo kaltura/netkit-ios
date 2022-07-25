@@ -19,7 +19,7 @@ concurrency:
 
 jobs:
   build:
-
+    environment: PR
     runs-on: macos-latest
 
     steps:
