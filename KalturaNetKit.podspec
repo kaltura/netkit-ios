@@ -1,7 +1,7 @@
 
 suffix = '.0000'   # Dev mode
 # suffix = ''       # Release
-
+# TEST
 Pod::Spec.new do |s|
   s.name             = 'KalturaNetKit'
   s.version          = '1.6.0' + suffix
