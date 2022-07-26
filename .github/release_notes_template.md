@@ -4,4 +4,4 @@
 
 
 ## Cocoapods install
-`pod '@@POD_NAME@@', '~> @@POD_PREFERRED_VERSION@@`
+`pod '@@POD_NAME@@', '~> @@POD_PREFERRED_VERSION@@'`
