@@ -22,7 +22,6 @@ echo "$SUMMARY"
 echo "$TARGET_TAG"
 echo "$VERSION"
 
-
-sed -i bak -e "s#@@RELEASE_NOTES@@#- TBA#g" -e "s#@@POD_NAME@@#$POD_NAME#g" -e "s#@@POD_PREFERRED_VERSION@@#$VERSION#g" .github/release_notes_template.md
+sed -e "s#@@RELEASE_NOTES@@#- TBA#g" -e "s#@@POD_NAME@@#$POD_NAME#g" -e "s#@@POD_PREFERRED_VERSION@@#$VERSION#g" -i '' .github/release_notes_template.md
 
 cat .github/release_notes_template.md
