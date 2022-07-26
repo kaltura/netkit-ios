@@ -8,11 +8,13 @@ jobs:
   TAGGING:
         runs-on: macos-latest
         environment: Tag
-        
+        outputs:
+          output1: ${{ steps.tagging.outputs.tag }}
         steps:
         - uses: actions/checkout@v3
         
         - name: Tag
+        - id: tagging
           run: |
             GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} sh .github/tag.sh
 
@@ -32,6 +34,7 @@ jobs:
     #     PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
     - uses: ncipollo/release-action@v1
       with:
+        tag: ${{needs.TAGGING.outputs.output1}}
         bodyFile: ".github/release_notes_template.md"
         token: ${{ secrets.GITHUB_TOKEN }}
         draft: true
