@@ -33,8 +33,8 @@ jobs:
     # - name: CocoaPods push
     #   run: |
     #     PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
-    - uses: ncipollo/release-action@v1
-      with:
-        bodyFile: ".github/release_notes_template.md"
-        token: ${{ secrets.GITHUB_TOKEN }}
-        draft: true
+#     - uses: ncipollo/release-action@v1
+#       with:
+#         bodyFile: ".github/release_notes_template.md"
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         draft: true
