@@ -1,27 +1,41 @@
 name: CocoaPods push
 
 on:
-  push:
-    tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+  on:
+    workflow_dispatch:
 
 jobs:
-  pods_push:
+
+  TAGGING:
+        runs-on: macos-latest
+        environment: Tag
+        
+        steps:
+        - uses: actions/checkout@v3
+        
+        - name: Updating CocoaPods repo
+          run: pod repo update
+        
+        - name: Tag
+          run: |
+            GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} sh .github/tag.sh
+
+
+  PODS_PUSH:
 
     runs-on: macos-latest
+    environment: CocoaPods
+    needs: TAGGING
 
     steps:
     - uses: actions/checkout@v3
     - name: Updating CocoaPods repo
       run: pod repo update
-#     - name: Pod linting
-#       run: pod lib lint --fail-fast --verbose
-#     - name: CocoaPods push
-#       run: |
-#         PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
+    # - name: CocoaPods push
+    #   run: |
+    #     PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
     - uses: ncipollo/release-action@v1
       with:
-        body: "TBA"
+        bodyFile: ".github/release_notes_template.md"
         token: ${{ secrets.GITHUB_TOKEN }}
         draft: true
-        
