@@ -35,8 +35,8 @@ jobs:
     #     PODS_USER=${{ secrets.PODS_USER }} PODS_PASS=${{ secrets.PODS_PASS }} sh .github/cocoapods_publish.sh
     
     - name: Prepare release notes
-        run: |
-          sh .github/release_notes.sh
+      run: |
+        sh .github/release_notes.sh
     
     - uses: ncipollo/release-action@v1
       with:
