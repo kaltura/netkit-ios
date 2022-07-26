@@ -1,7 +1,7 @@
 ## New in this version:
 
-@NOTES@
+@@RELEASE_NOTES@@
 
 
 ## Cocoapods install
-`pod '@POD_NAME@', '~> @POD_PREFERRED_VERSION@`
+`pod '@@POD_NAME@@', '~> @@POD_PREFERRED_VERSION@@`
