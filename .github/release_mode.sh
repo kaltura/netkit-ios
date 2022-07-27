@@ -9,6 +9,7 @@ sed -e "s#.0000##1" -i '' $POD.podspec
 
 cat $POD.podspec
 
+git add .
 git config user.name "Kaltura Dev"
 git config user.email dev@kaltura.com
 
