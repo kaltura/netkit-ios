@@ -8,7 +8,6 @@ POD=$(basename $PODSPEC .podspec)
 pod ipc spec $POD.podspec > spec.json
 
 TARGET_TAG=$(jq '.source.tag' --raw-output spec.json)
-VERSION=$(jq '.version' --raw-output spec.json)
 
 cat << EOF > post.json
 {
