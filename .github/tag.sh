@@ -8,6 +8,7 @@ POD=$(basename $PODSPEC .podspec)
 pod ipc spec $POD.podspec > spec.json
 
 TARGET_TAG=$(jq '.source.tag' --raw-output spec.json)
+NAME=$(jq '.name' --raw-output spec.json)
 
 cat << EOF > post.json
 {
@@ -22,3 +23,5 @@ curl $POST_URL -X POST -H "Content-Type: application/json" -H "authorization: Be
 
 #Add current tag to job output
 echo "::set-output name=tag::$TARGET_TAG"
+
+echo "$NAME release tag added and it is ready for CocoaPods distribution, upcoming version is $TARGET_TAG"
