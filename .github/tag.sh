@@ -9,11 +9,12 @@ pod ipc spec $POD.podspec > spec.json
 
 TARGET_TAG=$(jq '.source.tag' --raw-output spec.json)
 NAME=$(jq '.name' --raw-output spec.json)
+COMMIT_SHA=$(git rev-parse HEAD))
 
 cat << EOF > post.json
 {
   "ref": "refs/tags/$TARGET_TAG",
-  "sha": "$GITHUB_SHA"
+  "sha": "$COMMIT_SHA"
 }
 EOF
 
