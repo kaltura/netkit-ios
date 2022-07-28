@@ -19,6 +19,7 @@ jobs:
             sh .github/release_mode.sh
             
         - id: tagging
+          name: Add git tag
           run: |
             GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} sh .github/tag.sh
 
