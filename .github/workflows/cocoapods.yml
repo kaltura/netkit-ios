@@ -6,26 +6,24 @@ on:
 jobs:
 
   TAGGING:
-        runs-on: macos-latest
-        environment: Tag
-        outputs:
-          output1: ${{ steps.tagging.outputs.tag }}
+    runs-on: macos-latest
+    environment: Tag
+    outputs:
+      output1: ${{ steps.tagging.outputs.tag }}
         
-        steps:
-        - uses: actions/checkout@v3
+    steps:
+      - uses: actions/checkout@v3
         
-        - name: Switching Podspec to release mode
-          run: |
-            sh .github/release_mode.sh
+      - name: Switching Podspec to release mode
+        run: |
+          sh .github/release_mode.sh
             
-        - id: tagging
-          name: Add git tag
-          run: |
-            GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} sh .github/tag.sh
-
-
+      - id: tagging
+        name: Add git tag
+        run: |
+          GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }} sh .github/tag.sh
+          
   PODS_PUSH:
-
     runs-on: macos-latest
     environment: CocoaPods
     needs: TAGGING
