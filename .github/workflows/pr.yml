@@ -17,6 +17,7 @@ concurrency:
     cancel-in-progress: true
 
 jobs:
+  
   build:
     name: "CocoaPods linting"
     environment: PR
@@ -30,10 +31,12 @@ jobs:
 
     - name: Pod linting
       run: pod lib lint --fail-fast --verbose
+  
   SPM:
       name: "Build SPM"
       environment: PR
       runs-on: macos-latest
+      
       strategy:
         fail-fast: false
         matrix:
