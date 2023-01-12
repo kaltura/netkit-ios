@@ -1,6 +1,7 @@
 # Kaltura NetKit
 
-[![Build Status](https://travis-ci.org/kaltura/netkit-ios.svg?branch=develop)](https://travis-ci.org/kaltura/netkit-ios)
+![Swift 3.0+](https://img.shields.io/badge/Swift-3.0+-orange.svg)
+[![CI Status](https://github.com/kaltura/netkit-ios/actions/workflows/ci.yml/badge.svg)](https://github.com/kaltura/netkit-ios/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/cocoapods/v/KalturaNetKit.svg?style=flat)](http://cocoapods.org/pods/KalturaNetKit)
 [![License](https://img.shields.io/cocoapods/l/KalturaNetKit.svg?style=flat)](http://cocoapods.org/pods/KalturaNetKit)
 [![Platform](https://img.shields.io/cocoapods/p/KalturaNetKit.svg?style=flat)](http://cocoapods.org/pods/KalturaNetKit)
